@@ -11,6 +11,7 @@
 		8BB312852BC4827F00471E0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB312842BC4827F00471E0A /* ContentView.swift */; };
 		8BB312872BC4828100471E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB312862BC4828100471E0A /* Assets.xcassets */; };
 		8BB3128B2BC4828100471E0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB3128A2BC4828100471E0A /* Preview Assets.xcassets */; };
+		8BB312922BC482A800471E0A /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB312912BC482A800471E0A /* Diagram.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		8BB312862BC4828100471E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BB312882BC4828100471E0A /* SwiftDiagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftDiagram.entitlements; sourceTree = "<group>"; };
 		8BB3128A2BC4828100471E0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BB312912BC482A800471E0A /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagram.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				8BB312822BC4827F00471E0A /* SwiftDiagramApp.swift */,
 				8BB312842BC4827F00471E0A /* ContentView.swift */,
+				8BB312912BC482A800471E0A /* Diagram.swift */,
 				8BB312862BC4828100471E0A /* Assets.xcassets */,
 				8BB312882BC4828100471E0A /* SwiftDiagram.entitlements */,
 				8BB312892BC4828100471E0A /* Preview Content */,
@@ -141,6 +144,7 @@
 			files = (
 				8BB312852BC4827F00471E0A /* ContentView.swift in Sources */,
 				8BB312832BC4827F00471E0A /* SwiftDiagramApp.swift in Sources */,
+				8BB312922BC482A800471E0A /* Diagram.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
