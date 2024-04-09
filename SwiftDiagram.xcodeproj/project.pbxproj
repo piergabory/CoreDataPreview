@@ -11,7 +11,10 @@
 		8BB312852BC4827F00471E0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB312842BC4827F00471E0A /* ContentView.swift */; };
 		8BB312872BC4828100471E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB312862BC4828100471E0A /* Assets.xcassets */; };
 		8BB3128B2BC4828100471E0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB3128A2BC4828100471E0A /* Preview Assets.xcassets */; };
-		8BB312922BC482A800471E0A /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB312912BC482A800471E0A /* Diagram.swift */; };
+		8BB3129C2BC5E2FC00471E0A /* Desktop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3129B2BC5E2FC00471E0A /* Desktop.swift */; };
+		8BB3129E2BC5F89100471E0A /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3129D2BC5F89100471E0A /* Diagram.swift */; };
+		8BB312A02BC5F9FB00471E0A /* ControlPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3129F2BC5F9FB00471E0A /* ControlPoint.swift */; };
+		8BB312A22BC5FCD800471E0A /* DataContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB312A12BC5FCD800471E0A /* DataContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +24,10 @@
 		8BB312862BC4828100471E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BB312882BC4828100471E0A /* SwiftDiagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftDiagram.entitlements; sourceTree = "<group>"; };
 		8BB3128A2BC4828100471E0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8BB312912BC482A800471E0A /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagram.swift; sourceTree = "<group>"; };
+		8BB3129B2BC5E2FC00471E0A /* Desktop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desktop.swift; sourceTree = "<group>"; };
+		8BB3129D2BC5F89100471E0A /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagram.swift; sourceTree = "<group>"; };
+		8BB3129F2BC5F9FB00471E0A /* ControlPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPoint.swift; sourceTree = "<group>"; };
+		8BB312A12BC5FCD800471E0A /* DataContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +62,10 @@
 			children = (
 				8BB312822BC4827F00471E0A /* SwiftDiagramApp.swift */,
 				8BB312842BC4827F00471E0A /* ContentView.swift */,
-				8BB312912BC482A800471E0A /* Diagram.swift */,
+				8BB3129B2BC5E2FC00471E0A /* Desktop.swift */,
+				8BB312A12BC5FCD800471E0A /* DataContentView.swift */,
+				8BB3129D2BC5F89100471E0A /* Diagram.swift */,
+				8BB3129F2BC5F9FB00471E0A /* ControlPoint.swift */,
 				8BB312862BC4828100471E0A /* Assets.xcassets */,
 				8BB312882BC4828100471E0A /* SwiftDiagram.entitlements */,
 				8BB312892BC4828100471E0A /* Preview Content */,
@@ -143,8 +152,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB312852BC4827F00471E0A /* ContentView.swift in Sources */,
+				8BB3129E2BC5F89100471E0A /* Diagram.swift in Sources */,
 				8BB312832BC4827F00471E0A /* SwiftDiagramApp.swift in Sources */,
-				8BB312922BC482A800471E0A /* Diagram.swift in Sources */,
+				8BB3129C2BC5E2FC00471E0A /* Desktop.swift in Sources */,
+				8BB312A22BC5FCD800471E0A /* DataContentView.swift in Sources */,
+				8BB312A02BC5F9FB00471E0A /* ControlPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
