@@ -45,13 +45,16 @@ extension View {
 }
 
 #Preview {
-    Desktop(data: 1...10, id: \.self) { index in
-        Text(index, format: .number)
-            .padding()
-            .background()
-            .border(.primary)
-            .controlPoint(id: index, placement: .top)
+    HStack {
+        ForEach(1...10, id: \.self) { index in
+            Text(index, format: .number)
+                .padding()
+                .background()
+                .border(.primary)
+                .controlPoint(id: index, placement: .top)
+        }
     }
+    .padding()
     .showControlPoints {
         Circle()
             .fill(.red)
