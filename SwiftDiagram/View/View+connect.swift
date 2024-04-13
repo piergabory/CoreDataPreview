@@ -27,22 +27,24 @@ extension View {
     }
 }
 
-
 #Preview {
-    HStack(spacing: 20) {
-        ForEach(1...4, id: \.self) { index in
-            Text(index, format: .number)
-                .padding()
-                .background()
-                .border(.primary)
-                .fixedSize()
-                .controlPoint(id: index, placement: index.isMultiple(of: 2) ? .bottom : .top)
-                .moveable()
-                .offset(x: .random(in: -100..<100), y: .random(in: -100..<100))
+    VStack {
+        Text("toto").controlPoint(id: 7)
+        HStack(spacing: 20) {
+            ForEach(1...4, id: \.self) { index in
+                Text(index, format: .number)
+                    .padding()
+                    .background()
+                    .border(.primary)
+                    .fixedSize()
+                    .controlPoint(id: index, placement: index.isMultiple(of: 2) ? .bottom : .top)
+                    .moveable()
+                //                .offset(x: .random(in: -100..<100), y: .random(in: -100..<100))
+            }
         }
     }
     .padding(200)
-    .connect([1: [1, 2, 3], 3: [2, 4]])
+    .connect([1: [1, 2, 3], 3: [2, 4], 7: [3]])
     .showControlPoints {
         Circle()
             .fill(.red)

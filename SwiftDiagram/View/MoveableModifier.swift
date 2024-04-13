@@ -14,6 +14,7 @@ extension View {
 }
 
 struct MoveableModifier: ViewModifier {
+    // Look at Gesture State
     @State var offset: CGSize = .zero
     @State var pendingOffset: CGSize = .zero
 
