@@ -12,32 +12,11 @@ struct DataModelLoadingView: View {
     @State var xcDataModel: XcodeDataModelContent?
     @State var caughtError: Error?
 
-    var relationGraph: [String: Set<String>] {
-        guard let xcDataModel else { return [:] }
-        return xcDataModel.entities.reduce(into: [:]) { graph, entity in
-            for relationship in entity.relationships {
-                graph["trailing_" + relationship.name] = ["leading_" + (relationship.inverseName ?? relationship.destinationEntity ?? "void")]
-            }
-        }
-
-    }
-
-
     var body: some View {
         VStack {
             if let xcDataModel {
                 ScrollView([.horizontal, .vertical]) {
-                    LazyVGrid(columns: Array(repeating: GridItem(), count: 4)) {
-                        ForEach(xcDataModel.entities) { entity in
-                            EntityView(entity: entity)
-                        }
-                    }
-                    .showControlPoints {
-                        Circle()
-                            .foregroundStyle(.red)
-                            .frame(width: 8, height: 8)
-                    }
-                    .connect(relationGraph)
+                    XcodeDataModelView(model: xcDataModel)
                 }
                 .background()
             } else {

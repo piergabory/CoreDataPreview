@@ -24,6 +24,9 @@
 		8BF198972BCABC710072EA1F /* XcodeDataModelContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198962BCABC710072EA1F /* XcodeDataModelContent.swift */; };
 		8BF198992BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198982BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift */; };
 		8BF1989B2BCAEE7D0072EA1F /* AccordeonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1989A2BCAEE7D0072EA1F /* AccordeonSection.swift */; };
+		8BF1989D2BCB2BA10072EA1F /* preview_model in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1989C2BCB2BA10072EA1F /* preview_model */; };
+		8BF1989F2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1989E2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift */; };
+		8BF198A12BCB2D500072EA1F /* XcodeDataModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A02BCB2D500072EA1F /* XcodeDataModelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		8BF198962BCABC710072EA1F /* XcodeDataModelContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeDataModelContent.swift; sourceTree = "<group>"; };
 		8BF198982BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeDataModelContentBuilder.swift; sourceTree = "<group>"; };
 		8BF1989A2BCAEE7D0072EA1F /* AccordeonSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordeonSection.swift; sourceTree = "<group>"; };
+		8BF1989C2BCB2BA10072EA1F /* preview_model */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = preview_model; sourceTree = "<group>"; };
+		8BF1989E2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XcodeDataModelContent+Preview.swift"; sourceTree = "<group>"; };
+		8BF198A02BCB2D500072EA1F /* XcodeDataModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeDataModelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +97,9 @@
 		8BB312892BC4828100471E0A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				8BF1989C2BCB2BA10072EA1F /* preview_model */,
 				8BB3128A2BC4828100471E0A /* Preview Assets.xcassets */,
+				8BF1989E2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -99,7 +107,6 @@
 		8BE51B982BC8615A00E6BF28 /* EntityView */ = {
 			isa = PBXGroup;
 			children = (
-				8BE51B962BC85CE200E6BF28 /* Range+CustomStringConvertible.swift */,
 				8BE51B942BC8541E00E6BF28 /* EntityView.swift */,
 				8BE51B992BC8616700E6BF28 /* EntityViewItem.swift */,
 				8BF1989A2BCAEE7D0072EA1F /* AccordeonSection.swift */,
@@ -110,11 +117,10 @@
 		8BE51B9D2BC8635C00E6BF28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8BF198A22BCB2EB00072EA1F /* XcodeDataModelView */,
+				8BF198A32BCB2F0C0072EA1F /* Graph */,
+				8BE51B962BC85CE200E6BF28 /* Range+CustomStringConvertible.swift */,
 				8B98A5B62BC9274200B65C4C /* FilePickerView.swift */,
-				8BE51B982BC8615A00E6BF28 /* EntityView */,
-				8BB3129B2BC5E2FC00471E0A /* MoveableModifier.swift */,
-				8BB3129D2BC5F89100471E0A /* View+connect.swift */,
-				8BB3129F2BC5F9FB00471E0A /* ControlPoint.swift */,
 				8B81C1462BC978ED00814F82 /* ErrorAlertModifier.swift */,
 				8B81C14A2BC97F0A00814F82 /* DataModelLoadingView.swift */,
 			);
@@ -130,6 +136,25 @@
 				8BF198982BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8BF198A22BCB2EB00072EA1F /* XcodeDataModelView */ = {
+			isa = PBXGroup;
+			children = (
+				8BE51B982BC8615A00E6BF28 /* EntityView */,
+				8BF198A02BCB2D500072EA1F /* XcodeDataModelView.swift */,
+			);
+			path = XcodeDataModelView;
+			sourceTree = "<group>";
+		};
+		8BF198A32BCB2F0C0072EA1F /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				8BB3129B2BC5E2FC00471E0A /* MoveableModifier.swift */,
+				8BB3129D2BC5F89100471E0A /* View+connect.swift */,
+				8BB3129F2BC5F9FB00471E0A /* ControlPoint.swift */,
+			);
+			path = Graph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +217,7 @@
 			files = (
 				8BB3128B2BC4828100471E0A /* Preview Assets.xcassets in Resources */,
 				8BB312872BC4828100471E0A /* Assets.xcassets in Resources */,
+				8BF1989D2BCB2BA10072EA1F /* preview_model in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +230,10 @@
 			files = (
 				8BB3129E2BC5F89100471E0A /* View+connect.swift in Sources */,
 				8B81C14B2BC97F0A00814F82 /* DataModelLoadingView.swift in Sources */,
+				8BF198A12BCB2D500072EA1F /* XcodeDataModelView.swift in Sources */,
 				8BB312832BC4827F00471E0A /* SwiftDiagramApp.swift in Sources */,
 				8BF1989B2BCAEE7D0072EA1F /* AccordeonSection.swift in Sources */,
+				8BF1989F2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift in Sources */,
 				8BE51B952BC8541E00E6BF28 /* EntityView.swift in Sources */,
 				8BE51B9A2BC8616700E6BF28 /* EntityViewItem.swift in Sources */,
 				8BE51BA02BC8637700E6BF28 /* Entity.swift in Sources */,

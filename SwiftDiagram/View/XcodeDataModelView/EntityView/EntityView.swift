@@ -32,13 +32,8 @@ struct EntityView: View {
                     Label("Relationships", systemImage: "app.connected.to.app.below.fill")
                 } content: {
                     ForEach(entity.relationships) { relationship in
-                        ZStack {
-                            EntityViewItem(relationship.name, detail: relationship.destinationEntity)
-                            HStack {
-                                Spacer().controlPoint(id: "leading_" + relationship.name, placement: .leading)
-                                Spacer().controlPoint(id: "trailing_" + relationship.name, placement: .trailing)
-                            }
-                        }
+                        EntityViewItem(relationship.name, detail: relationship.destinationEntity)
+                            .controlPoint(id: relationship.name)
                     }
                 }
             }
@@ -49,4 +44,8 @@ struct EntityView: View {
         .cornerRadius(8)
         .moveable()
     }
+}
+
+#Preview {
+    EntityView(entity: XcodeDataModelContent.Entity.preview)
 }
