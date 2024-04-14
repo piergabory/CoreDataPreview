@@ -27,14 +27,14 @@ struct XcodeDataModelView: View {
                 EntityView(entity: entity)
             }
         }
-        .logicalPaths(links, styleType: DirectPathToMidPoint.self, shapeStyle: .blue)
+        .logicalPaths(links, styleType: OrthogonalPath.self, shapeStyle: .blue)
     }
 }
 
 #Preview {
     XcodeDataModelView(model: 
         XcodeDataModelContent(
-            entities: Array(XcodeDataModelContent.preview.entities[1...3]),
+            entities: Array(XcodeDataModelContent.preview.entities[4...9]),
             properties: XcodeDataModelContent.preview.properties
         )
     )

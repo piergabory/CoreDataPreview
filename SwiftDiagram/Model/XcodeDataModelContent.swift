@@ -20,6 +20,7 @@ struct XcodeDataModelContent {
         }
 
         struct Relationship: Decodable, Identifiable {
+            let entity: String
             let name: String
             let optional: String?
             let maxCount: String?
@@ -28,8 +29,19 @@ struct XcodeDataModelContent {
             let inverseName: String?
             let inverseEntity: String?
 
-            var id: AnyHashable { "Relationship_" + name }
-            var targetId: AnyHashable { "Relationship_" + (inverseName ?? "void") }
+            var id: String {
+                entity + "_" + name
+            }
+
+            var targetId: String {
+                if let inverseName, let inverseEntity {
+                    inverseEntity + "_" + inverseName
+                } else if let destinationEntity {
+                    destinationEntity + "_void"
+                } else {
+                    "void"
+                }
+            }
         }
 
         struct Properties {

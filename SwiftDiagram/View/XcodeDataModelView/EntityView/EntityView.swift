@@ -11,14 +11,13 @@ struct EntityView: View {
     let entity: XcodeDataModelContent.Entity
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(spacing: 0) {
             Text(entity.properties.name)
                 .font(.title2.bold())
-                .padding(.horizontal)
-                .frame(maxWidth: .infinity)
+                .padding()
 
             if entity.attributes.isEmpty == false {
-                AccordeonSection {
+                AccordeonSection { _ in
                     Label("Attributes", systemImage: "circle.grid.2x2.fill")
                 } content: {
                     ForEach(entity.attributes) { attribute in
@@ -28,8 +27,16 @@ struct EntityView: View {
             }
 
             if entity.relationships.isEmpty == false {
-                AccordeonSection {
-                    Label("Relationships", systemImage: "app.connected.to.app.below.fill")
+                AccordeonSection { isExpanded in
+                    ZStack {
+                        Label("Relationships", systemImage: "app.connected.to.app.below.fill")
+                        if isExpanded == false {
+                            ForEach(entity.relationships) { relationship in
+                                Color.clear
+                                    .logicalNode(relationship)
+                            }
+                        }
+                    }
                 } content: {
                     ForEach(entity.relationships) { relationship in
                         EntityViewItem(relationship.name, detail: relationship.inverseName)
@@ -38,7 +45,6 @@ struct EntityView: View {
                 }
             }
         }
-        .padding(.vertical)
         .fixedSize()
         .background(.regularMaterial)
         .cornerRadius(8)

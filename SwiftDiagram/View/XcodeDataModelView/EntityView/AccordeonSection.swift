@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccordeonSection<Title: View, Content: View>: View {
-    @ViewBuilder let header: () -> Title
+    @ViewBuilder let header: (Bool) -> Title
     @ViewBuilder let content: () -> Content
     @State var isExpanded = true
 
@@ -17,7 +17,7 @@ struct AccordeonSection<Title: View, Content: View>: View {
             VStack(alignment: .leading) {
                 Divider()
                 HStack {
-                    header()
+                    header(isExpanded)
                     Image(systemName: "chevron.up")
                         .scaleEffect(y: isExpanded ? -1 : 1)
                 }
@@ -43,7 +43,7 @@ struct AccordeonSection<Title: View, Content: View>: View {
 }
 
 #Preview {
-    AccordeonSection {
+    AccordeonSection { _ in
         Label("Title", systemImage: "star.fill")
     } content: {
         Text("Content").frame(width: 100, height: 100)

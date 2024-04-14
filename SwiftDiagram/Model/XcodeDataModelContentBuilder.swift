@@ -62,6 +62,7 @@ struct XcodeDataModelContentBuilder {
     private func entityRelationships(_ entity: XMLElement) throws -> [XcodeDataModelContent.Entity.Relationship] {
         try entity.elements(forName: "relationship").map { attribute in
             XcodeDataModelContent.Entity.Relationship(
+                entity: try attributeString("name", on: entity),
                 name: try attributeString("name", on: attribute),
                 optional: try? attributeString("optional", on: attribute),
                 maxCount: try? attributeString("maxCount", on: attribute),
