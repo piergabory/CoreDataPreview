@@ -29,6 +29,7 @@ struct XcodeDataModelContent {
             let inverseEntity: String?
 
             var id: AnyHashable { "Relationship_" + name }
+            var targetId: AnyHashable { "Relationship_" + (inverseName ?? "void") }
         }
 
         struct Properties {

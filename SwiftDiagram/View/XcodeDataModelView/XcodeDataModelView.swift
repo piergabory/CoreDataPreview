@@ -11,10 +11,12 @@ struct XcodeDataModelView: View {
     let model: XcodeDataModelContent
 
 
-    var relationGraph: [String: Set<String>] {
-        model.entities.reduce(into: [:]) { graph, entity in
-            for relationship in entity.relationships {
-                graph[relationship.name] = [relationship.inverseName ?? relationship.destinationEntity ?? "void"]
+    var links: [LogicalPath<XcodeDataModelContent.Entity.Relationship>] {
+        model.entities.flatMap(\.relationships).compactMap { relationship in
+            if let target = relationship.inverseName {
+                LogicalPath(origin: relationship.id, destination: relationship.targetId)
+            } else {
+                nil
             }
         }
     }
@@ -25,12 +27,17 @@ struct XcodeDataModelView: View {
                 EntityView(entity: entity)
             }
         }
-        .connect(relationGraph)
+        .logicalPaths(links, styleType: DirectPathToMidPoint.self, shapeStyle: .blue)
     }
 }
 
 #Preview {
-    XcodeDataModelView(model: .preview)
+    XcodeDataModelView(model: 
+        XcodeDataModelContent(
+            entities: Array(XcodeDataModelContent.preview.entities[1...3]),
+            properties: XcodeDataModelContent.preview.properties
+        )
+    )
         .frame(minWidth: 1000, minHeight: 1000)
         .background()
 }

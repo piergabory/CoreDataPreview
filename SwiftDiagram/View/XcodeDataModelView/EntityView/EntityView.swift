@@ -32,8 +32,8 @@ struct EntityView: View {
                     Label("Relationships", systemImage: "app.connected.to.app.below.fill")
                 } content: {
                     ForEach(entity.relationships) { relationship in
-                        EntityViewItem(relationship.name, detail: relationship.destinationEntity)
-                            .controlPoint(id: relationship.name)
+                        EntityViewItem(relationship.name, detail: relationship.inverseName)
+                            .logicalNode(relationship)
                     }
                 }
             }
