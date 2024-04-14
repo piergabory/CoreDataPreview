@@ -27,6 +27,10 @@
 		8BF198A12BCB2D500072EA1F /* XcodeDataModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A02BCB2D500072EA1F /* XcodeDataModelView.swift */; };
 		8BF198A52BCB2FD20072EA1F /* LogicalDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A42BCB2FD20072EA1F /* LogicalDiagram.swift */; };
 		8BF198A82BCBE6EB0072EA1F /* LogicalPathStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A72BCBE6EB0072EA1F /* LogicalPathStyle.swift */; };
+		8BF198AA2BCC1BAF0072EA1F /* LogicalPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A92BCC1BAF0072EA1F /* LogicalPath.swift */; };
+		8BF198AC2BCC28560072EA1F /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198AB2BCC28560072EA1F /* Vector.swift */; };
+		8BF198AE2BCC297B0072EA1F /* BoxConnectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198AD2BCC297B0072EA1F /* BoxConnectionStrategy.swift */; };
+		8BF198B02BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		8BF198A42BCB2FD20072EA1F /* LogicalDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalDiagram.swift; sourceTree = "<group>"; };
 		8BF198A62BCBE0570072EA1F /* wthealth_preview_model */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = wthealth_preview_model; sourceTree = "<group>"; };
 		8BF198A72BCBE6EB0072EA1F /* LogicalPathStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalPathStyle.swift; sourceTree = "<group>"; };
+		8BF198A92BCC1BAF0072EA1F /* LogicalPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalPath.swift; sourceTree = "<group>"; };
+		8BF198AB2BCC28560072EA1F /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		8BF198AD2BCC297B0072EA1F /* BoxConnectionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxConnectionStrategy.swift; sourceTree = "<group>"; };
+		8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrthogonalLogicalPathShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,10 @@
 			children = (
 				8BF198A42BCB2FD20072EA1F /* LogicalDiagram.swift */,
 				8BF198A72BCBE6EB0072EA1F /* LogicalPathStyle.swift */,
+				8BF198A92BCC1BAF0072EA1F /* LogicalPath.swift */,
+				8BF198AB2BCC28560072EA1F /* Vector.swift */,
+				8BF198AD2BCC297B0072EA1F /* BoxConnectionStrategy.swift */,
+				8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -230,6 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF198B02BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift in Sources */,
+				8BF198AA2BCC1BAF0072EA1F /* LogicalPath.swift in Sources */,
 				8BF198A52BCB2FD20072EA1F /* LogicalDiagram.swift in Sources */,
 				8B81C14B2BC97F0A00814F82 /* DataModelLoadingView.swift in Sources */,
 				8BF198A12BCB2D500072EA1F /* XcodeDataModelView.swift in Sources */,
@@ -238,12 +252,14 @@
 				8BF1989F2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift in Sources */,
 				8BE51B952BC8541E00E6BF28 /* EntityView.swift in Sources */,
 				8BE51B9A2BC8616700E6BF28 /* EntityViewItem.swift in Sources */,
+				8BF198AE2BCC297B0072EA1F /* BoxConnectionStrategy.swift in Sources */,
 				8BE51BA02BC8637700E6BF28 /* Entity.swift in Sources */,
 				8BF198972BCABC710072EA1F /* XcodeDataModelContent.swift in Sources */,
 				8B98A5B72BC9274200B65C4C /* FilePickerView.swift in Sources */,
 				8BE51B972BC85CE200E6BF28 /* Range+CustomStringConvertible.swift in Sources */,
 				8BB3129C2BC5E2FC00471E0A /* MoveableModifier.swift in Sources */,
 				8B81C1492BC97E9500814F82 /* UTType+XCodeDataModel.swift in Sources */,
+				8BF198AC2BCC28560072EA1F /* Vector.swift in Sources */,
 				8B81C1472BC978ED00814F82 /* ErrorAlertModifier.swift in Sources */,
 				8BF198A82BCBE6EB0072EA1F /* LogicalPathStyle.swift in Sources */,
 				8BF198992BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift in Sources */,

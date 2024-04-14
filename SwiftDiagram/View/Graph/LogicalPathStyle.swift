@@ -105,6 +105,7 @@ struct OrthogonalPath: LogicalPathStyle {
     let origin: CGRect
     let destination: CGRect
 
+    @ViewBuilder
     func overlay() -> some View {
         ZStack {
             if let (origin, destination) = horizontalMidPoints() {

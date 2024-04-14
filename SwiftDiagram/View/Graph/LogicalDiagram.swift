@@ -16,7 +16,7 @@ extension View {
     }
 
     func logicalPaths<Node: Identifiable, Style: LogicalPathStyle>(
-        _ links: [LogicalPath<Node>],
+        _ links: [LogicalRelation<Node>],
         styleType: Style.Type,
         shapeStyle: some ShapeStyle
     ) -> some View {
@@ -37,7 +37,7 @@ extension View {
     }
 
     private func logicalPathLayer<Node: Identifiable, Style: LogicalPathStyle, Layer: View>(
-        _ links: [LogicalPath<Node>],
+        _ links: [LogicalRelation<Node>],
         nodePositions: LogicalNodePositions<Node>,
         styleType _: Style.Type,
         @ViewBuilder layer: @escaping (Style) -> Layer
@@ -54,7 +54,7 @@ extension View {
     }
 }
 
-struct LogicalPath<Node: Identifiable>: Hashable, Identifiable {
+struct LogicalRelation<Node: Identifiable>: Hashable, Identifiable {
     let origin: Node.ID
     let destination: Node.ID
     var id: Self { self }
@@ -121,8 +121,8 @@ struct LogicalNodePositions<Node: Identifiable>: PreferenceKey {
             Box(name: "Monde")
         }
     }
-    .logicalPaths([LogicalPath<Node>(origin: "Hello", destination: "World")], styleType: OrthogonalPath.self, shapeStyle: .red)
-    .logicalPaths([LogicalPath<Node>(origin: "Salut", destination: "Monde")], styleType: DirectPathToMidPoint.self, shapeStyle: .green)
-    .logicalPaths([LogicalPath<Node>(origin: "Universe", destination: "Howdy")], styleType: SaggingPathToMidPoint.self, shapeStyle: .blue)
+    .logicalPaths([LogicalRelation<Node>(origin: "Hello", destination: "World")], styleType: OrthogonalPath.self, shapeStyle: .red)
+    .logicalPaths([LogicalRelation<Node>(origin: "Salut", destination: "Monde")], styleType: DirectPathToMidPoint.self, shapeStyle: .green)
+    .logicalPaths([LogicalRelation<Node>(origin: "Universe", destination: "Howdy")], styleType: SaggingPathToMidPoint.self, shapeStyle: .blue)
     .frame(width: 500, height: 500)
 }

@@ -10,19 +10,19 @@ import SwiftUI
 struct XcodeDataModelView: View {
     let model: XcodeDataModelContent
 
-    var inheritances: [LogicalPath<XcodeDataModelContent.Entity>] {
+    var inheritances: [LogicalRelation<XcodeDataModelContent.Entity>] {
         model.entities.compactMap { entity in
             if let parent = entity.parentId {
-                LogicalPath(origin: entity.id, destination: parent)
+                LogicalRelation(origin: entity.id, destination: parent)
             } else {
                 nil
             }
         }
     }
 
-    var relationships: [LogicalPath<XcodeDataModelContent.Entity.Relationship>] {
+    var relationships: [LogicalRelation<XcodeDataModelContent.Entity.Relationship>] {
         model.entities.flatMap(\.relationships).compactMap { relationship in
-            LogicalPath(origin: relationship.id, destination: relationship.targetId)
+            LogicalRelation(origin: relationship.id, destination: relationship.targetId)
         }
     }
 
