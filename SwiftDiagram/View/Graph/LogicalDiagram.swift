@@ -17,17 +17,36 @@ extension View {
 
     func logicalPaths<Node: Identifiable, Style: LogicalPathStyle>(
         _ links: [LogicalPath<Node>],
-        styleType _: Style.Type,
+        styleType: Style.Type,
         shapeStyle: some ShapeStyle
     ) -> some View {
-        backgroundPreferenceValue(LogicalNodePositions<Node>.self) { preference in
-            ZStack {
-                ForEach(links) { link in
-                    if let originAnchor = preference.anchor(for: link.origin), let destinationAnchor = preference.anchor(for: link.destination) {
-                        GeometryReader { proxy in
-                            Style(origin: proxy[originAnchor], destination: proxy[destinationAnchor])
-                                .stroke(shapeStyle)
-                        }
+        self.backgroundPreferenceValue(LogicalNodePositions<Node>.self) { preference in
+            logicalPathLayer(links, nodePositions: preference, styleType: styleType) { style in
+                style
+                    .background()
+                    .foregroundStyle(shapeStyle)
+            }
+        }
+        .overlayPreferenceValue(LogicalNodePositions<Node>.self) { preference in
+            logicalPathLayer(links, nodePositions: preference, styleType: styleType) { style in
+                style
+                    .overlay()
+                    .foregroundStyle(shapeStyle)
+            }
+        }
+    }
+
+    private func logicalPathLayer<Node: Identifiable, Style: LogicalPathStyle, Layer: View>(
+        _ links: [LogicalPath<Node>],
+        nodePositions: LogicalNodePositions<Node>,
+        styleType _: Style.Type,
+        @ViewBuilder layer: @escaping (Style) -> Layer
+    ) -> some View {
+        ZStack {
+            ForEach(links) { link in
+                if let originAnchor = nodePositions.anchor(for: link.origin), let destinationAnchor = nodePositions.anchor(for: link.destination) {
+                    GeometryReader { proxy in
+                        layer(Style(origin: proxy[originAnchor], destination: proxy[destinationAnchor]))
                     }
                 }
             }
@@ -64,99 +83,6 @@ struct LogicalNodePositions<Node: Identifiable>: PreferenceKey {
 
     static func reduce(value: inout Value, nextValue: () -> Value) {
         value.merge(nextValue())
-    }
-}
-
-// MARK: - Paths
-
-protocol LogicalPathStyle: Shape {
-    var origin: CGRect { get }
-    var destination: CGRect { get }
-
-    init(origin: CGRect, destination: CGRect)
-}
-
-extension LogicalPathStyle {
-    func horizontalMidPoints() -> (origin: CGPoint, destination: CGPoint)? {
-        if origin.maxX < destination.minX {
-            (CGPoint(x: origin.maxX, y: origin.midY), CGPoint(x: destination.minX, y: destination.midY))
-        } else if destination.maxX < origin.minX {
-            (CGPoint(x: origin.minX, y: origin.midY), CGPoint(x: destination.maxX, y: destination.midY))
-        } else {
-            nil
-        }
-    }
-
-    func verticalMidPoints() -> (origin: CGPoint, destination: CGPoint)? {
-        if origin.maxY < destination.minY {
-            (CGPoint(x: origin.midX, y: origin.maxY), CGPoint(x: destination.midX, y: destination.minY))
-        } else if destination.maxY < origin.minY {
-            (CGPoint(x: origin.midX, y: origin.minY), CGPoint(x: destination.midX, y: destination.maxY))
-        } else {
-            nil
-        }
-    }
-
-    func closestMidPoints() -> (origin: CGPoint, destination: CGPoint)? {
-        guard let (left, right) = horizontalMidPoints() else { return verticalMidPoints() }
-        guard let (top, bottom) = verticalMidPoints() else { return horizontalMidPoints() }
-        let vDelta = CGPoint(x: top.x - bottom.x, y: top.y - bottom.y)
-        let vSquaredDistance = vDelta.x * vDelta.x + vDelta.y * vDelta.y
-        let hDelta = CGPoint(x: left.x - right.x, y: left.y - right.y)
-        let hSquaredDistance = hDelta.x * hDelta.x + hDelta.y * hDelta.y
-        return hSquaredDistance < vSquaredDistance ? (left, right) : (top, bottom)
-    }
-}
-
-struct DirectPathToMidPoint: LogicalPathStyle {
-    let origin: CGRect
-    let destination: CGRect
-
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            if let (origin, destination) = closestMidPoints() {
-                path.move(to: origin)
-                path.addLine(to: destination)
-            }
-        }
-    }
-}
-
-struct SaggingPathToMidPoint: LogicalPathStyle {
-    let origin: CGRect
-    let destination: CGRect
-
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            if let (origin, destination) = closestMidPoints() {
-                let control = CGPoint(x: (origin.x + destination.x) / 2, y: max(origin.y, destination.y))
-                path.move(to: origin)
-                path.addQuadCurve(to: destination, control: control)
-            }
-        }
-    }
-}
-
-struct OrthogonalPath: LogicalPathStyle {
-    let origin: CGRect
-    let destination: CGRect
-
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            if let (origin, destination) = horizontalMidPoints() {
-                let halfwayx = (origin.x + destination.x) / 2
-                path.move(to: origin)
-                path.addLine(to: CGPoint(x: halfwayx, y: origin.y))
-                path.addLine(to: CGPoint(x: halfwayx, y: destination.y))
-                path.addLine(to: destination)
-            } else if let (origin, destination) = verticalMidPoints() {
-                let halfwayy = (origin.y + destination.y) / 2
-                path.move(to: origin)
-                path.addLine(to: CGPoint(x: origin.x, y: halfwayy))
-                path.addLine(to: CGPoint(x: destination.x, y: halfwayy))
-                path.addLine(to: destination)
-            }
-        }
     }
 }
 

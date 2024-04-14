@@ -26,6 +26,7 @@
 		8BF1989F2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1989E2BCB2BE00072EA1F /* XcodeDataModelContent+Preview.swift */; };
 		8BF198A12BCB2D500072EA1F /* XcodeDataModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A02BCB2D500072EA1F /* XcodeDataModelView.swift */; };
 		8BF198A52BCB2FD20072EA1F /* LogicalDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A42BCB2FD20072EA1F /* LogicalDiagram.swift */; };
+		8BF198A82BCBE6EB0072EA1F /* LogicalPathStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198A72BCBE6EB0072EA1F /* LogicalPathStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		8BF198A02BCB2D500072EA1F /* XcodeDataModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeDataModelView.swift; sourceTree = "<group>"; };
 		8BF198A42BCB2FD20072EA1F /* LogicalDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalDiagram.swift; sourceTree = "<group>"; };
 		8BF198A62BCBE0570072EA1F /* wthealth_preview_model */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = wthealth_preview_model; sourceTree = "<group>"; };
+		8BF198A72BCBE6EB0072EA1F /* LogicalPathStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalPathStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8BF198A42BCB2FD20072EA1F /* LogicalDiagram.swift */,
+				8BF198A72BCBE6EB0072EA1F /* LogicalPathStyle.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				8BB3129C2BC5E2FC00471E0A /* MoveableModifier.swift in Sources */,
 				8B81C1492BC97E9500814F82 /* UTType+XCodeDataModel.swift in Sources */,
 				8B81C1472BC978ED00814F82 /* ErrorAlertModifier.swift in Sources */,
+				8BF198A82BCBE6EB0072EA1F /* LogicalPathStyle.swift in Sources */,
 				8BF198992BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
