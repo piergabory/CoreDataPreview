@@ -48,6 +48,7 @@ struct EntityView: View {
         .fixedSize()
         .background(.regularMaterial)
         .cornerRadius(8)
+        .logicalNode(entity)
         .moveable()
     }
 }

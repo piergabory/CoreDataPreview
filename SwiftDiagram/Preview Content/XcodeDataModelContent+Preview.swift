@@ -9,7 +9,7 @@ import Foundation
 
 extension XcodeDataModelContent {
     static var preview: Self {
-        let file = Bundle.main.url(forResource: "preview_model", withExtension: nil)!
+        let file = Bundle.main.url(forResource: "wthealth_preview_model", withExtension: nil)!
         let document = try! XMLDocument(contentsOf: file)
         return try! XcodeDataModelContentBuilder(document: document).build()
     }

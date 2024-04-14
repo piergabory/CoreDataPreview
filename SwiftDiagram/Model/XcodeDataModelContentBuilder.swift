@@ -77,6 +77,7 @@ struct XcodeDataModelContentBuilder {
     private func entityProperties(_ entity: XMLElement) throws -> XcodeDataModelContent.Entity.Properties {
         XcodeDataModelContent.Entity.Properties(
             name: try attributeString("name", on: entity),
+            parentName: try? attributeString("parentEntity", on: entity),
             representedClassName: try? attributeString("representedClassName", on: entity),
             syncable: try? attributeString("syncable", on: entity),
             codeGenerationType: try? attributeString("codeGenerationType", on: entity)

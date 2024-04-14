@@ -46,6 +46,7 @@ struct XcodeDataModelContent {
 
         struct Properties {
             let name: String
+            let parentName: String?
             let representedClassName: String?
             let syncable: String?
             let codeGenerationType: String?
@@ -56,6 +57,7 @@ struct XcodeDataModelContent {
         let relationships: [Relationship]
 
         var id: AnyHashable { "Entity_" + properties.name }
+        var parentId: AnyHashable? { properties.parentName.map { "Entity_" + $0 } }
     }
 
     struct Properties {

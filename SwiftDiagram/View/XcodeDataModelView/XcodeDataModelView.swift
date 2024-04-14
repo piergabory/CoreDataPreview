@@ -10,14 +10,19 @@ import SwiftUI
 struct XcodeDataModelView: View {
     let model: XcodeDataModelContent
 
-
-    var links: [LogicalPath<XcodeDataModelContent.Entity.Relationship>] {
-        model.entities.flatMap(\.relationships).compactMap { relationship in
-            if let target = relationship.inverseName {
-                LogicalPath(origin: relationship.id, destination: relationship.targetId)
+    var inheritances: [LogicalPath<XcodeDataModelContent.Entity>] {
+        model.entities.compactMap { entity in
+            if let parent = entity.parentId {
+                LogicalPath(origin: entity.id, destination: parent)
             } else {
                 nil
             }
+        }
+    }
+
+    var relationships: [LogicalPath<XcodeDataModelContent.Entity.Relationship>] {
+        model.entities.flatMap(\.relationships).compactMap { relationship in
+            LogicalPath(origin: relationship.id, destination: relationship.targetId)
         }
     }
 
@@ -27,14 +32,15 @@ struct XcodeDataModelView: View {
                 EntityView(entity: entity)
             }
         }
-        .logicalPaths(links, styleType: OrthogonalPath.self, shapeStyle: .blue)
+        .logicalPaths(relationships, styleType: OrthogonalPath.self, shapeStyle: .blue)
+        .logicalPaths(inheritances, styleType: DirectPathToMidPoint.self, shapeStyle: .red)
     }
 }
 
 #Preview {
     XcodeDataModelView(model: 
         XcodeDataModelContent(
-            entities: Array(XcodeDataModelContent.preview.entities[4...9]),
+            entities: XcodeDataModelContent.preview.entities,
             properties: XcodeDataModelContent.preview.properties
         )
     )
