@@ -31,6 +31,8 @@
 		8BF198AC2BCC28560072EA1F /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198AB2BCC28560072EA1F /* Vector.swift */; };
 		8BF198AE2BCC297B0072EA1F /* BoxConnectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198AD2BCC297B0072EA1F /* BoxConnectionStrategy.swift */; };
 		8BF198B02BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */; };
+		8BF198B22BCC4F5A0072EA1F /* ShortestLogicalPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198B12BCC4F5A0072EA1F /* ShortestLogicalPathShape.swift */; };
+		8BF198B42BCC51880072EA1F /* LogicalPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF198B32BCC51880072EA1F /* LogicalPathShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		8BF198AB2BCC28560072EA1F /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		8BF198AD2BCC297B0072EA1F /* BoxConnectionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxConnectionStrategy.swift; sourceTree = "<group>"; };
 		8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrthogonalLogicalPathShape.swift; sourceTree = "<group>"; };
+		8BF198B12BCC4F5A0072EA1F /* ShortestLogicalPathShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortestLogicalPathShape.swift; sourceTree = "<group>"; };
+		8BF198B32BCC51880072EA1F /* LogicalPathShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalPathShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +170,19 @@
 				8BF198A92BCC1BAF0072EA1F /* LogicalPath.swift */,
 				8BF198AB2BCC28560072EA1F /* Vector.swift */,
 				8BF198AD2BCC297B0072EA1F /* BoxConnectionStrategy.swift */,
-				8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */,
+				8BF198B52BCC519B0072EA1F /* LogicalPathShape */,
 			);
 			path = Graph;
+			sourceTree = "<group>";
+		};
+		8BF198B52BCC519B0072EA1F /* LogicalPathShape */ = {
+			isa = PBXGroup;
+			children = (
+				8BF198B12BCC4F5A0072EA1F /* ShortestLogicalPathShape.swift */,
+				8BF198AF2BCC340A0072EA1F /* OrthogonalLogicalPathShape.swift */,
+				8BF198B32BCC51880072EA1F /* LogicalPathShape.swift */,
+			);
+			path = LogicalPathShape;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +275,8 @@
 				8B81C1492BC97E9500814F82 /* UTType+XCodeDataModel.swift in Sources */,
 				8BF198AC2BCC28560072EA1F /* Vector.swift in Sources */,
 				8B81C1472BC978ED00814F82 /* ErrorAlertModifier.swift in Sources */,
+				8BF198B22BCC4F5A0072EA1F /* ShortestLogicalPathShape.swift in Sources */,
+				8BF198B42BCC51880072EA1F /* LogicalPathShape.swift in Sources */,
 				8BF198A82BCBE6EB0072EA1F /* LogicalPathStyle.swift in Sources */,
 				8BF198992BCAC9680072EA1F /* XcodeDataModelContentBuilder.swift in Sources */,
 			);

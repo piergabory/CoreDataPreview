@@ -12,6 +12,18 @@ protocol BoxConnectionStrategy {
     func boxConnection(from origin: CGRect, to destination: CGRect) -> EdgePair
 }
 
+private struct BoxConnectionStrategyEnvironmentKey: EnvironmentKey {
+    let strategy: BoxConnectionStrategy
+    static let defaultValue = BoxConnectionStrategyEnvironmentKey(strategy: VerticalFacingEdges())
+}
+
+extension EnvironmentValues {
+    var boxConnectionStrategy: any BoxConnectionStrategy {
+        get { self[BoxConnectionStrategyEnvironmentKey.self].strategy }
+        set { self[BoxConnectionStrategyEnvironmentKey.self] = BoxConnectionStrategyEnvironmentKey(strategy: newValue) }
+    }
+}
+
 /// Will find the best two vertical edges for tracing a connection
 struct VerticalFacingEdges: BoxConnectionStrategy {
     func boxConnection(from origin: CGRect, to destination: CGRect) -> EdgePair {

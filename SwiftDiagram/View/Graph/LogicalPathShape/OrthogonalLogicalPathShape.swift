@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct OrthogonalLogicalPathShape: Shape {
+struct OrthogonalLogicalPathShape: LogicalPathShape {
     let origin: CGPoint
     let startEdge: CGRectEdge
     let destination: CGPoint
     let endEdge: CGRectEdge
     let edgeOffset: CGFloat
 
-    init(origin: CGRect, destination: CGRect, edgeOffset: CGFloat = 10, connectionStrategy: BoxConnectionStrategy) {
+    init(origin: CGRect, destination: CGRect, edgeOffset: CGFloat = 10, connectionStrategy: BoxConnectionStrategy = VerticalFacingEdges()) {
         (startEdge, endEdge) = connectionStrategy.boxConnection(from: origin, to: destination)
         self.origin = origin.midPoint(along: startEdge)
         self.destination = destination.midPoint(along: endEdge)
@@ -27,10 +27,17 @@ struct OrthogonalLogicalPathShape: Shape {
         let points = [origin, originOffset]
             + midPoints(from: startEdge, at: originOffset, to: endEdge, at: destinationOffset)
             + [destinationOffset, destination]
-        print(self)
         return Path { path in
             path.addLines(points)
         }
+    }
+
+    var startAngle: Angle {
+        startEdge.angle
+    }
+
+    var endAngle: Angle {
+        endEdge.angle
     }
 
     private func midPoints(from startEdge: CGRectEdge, at origin: CGPoint, to endEdge: CGRectEdge, at destination: CGPoint) -> [CGPoint] {
