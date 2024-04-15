@@ -27,23 +27,35 @@ struct XcodeDataModelView: View {
     }
 
     var body: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(), count: 4)) {
+        LazyHGrid(rows: Array(repeating: GridItem(), count: 3)) {
             ForEach(model.entities) { entity in
                 EntityView(entity: entity)
+                    .padding(50)
             }
         }
-        .logicalPaths(relationships, styleType: OrthogonalPath.self, shapeStyle: .blue)
-        .logicalPaths(inheritances, styleType: DirectPathToMidPoint.self, shapeStyle: .red)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .logicalPaths(relationships) {
+            OrthogonalLogicalPathShape(origin: $0, destination: $1)
+                .stroke {
+                    Image(systemName: "chevron.left").offset(x: 4)
+                }
+                .foregroundStyle(.blue)
+        }
+        .logicalPaths(inheritances) {
+            ShortestLogicalPathShape(origin: $0, destination: $1, edgeOffset: 20, connectionStrategy: DirectionnalConnection())
+                .stroke {
+                    Circle().frame(width: 6)
+                } end: {
+                    Image(systemName: "chevron.left").offset(x: 4)
+                }
+                .foregroundStyle(.red)
+        }
+        .background()
     }
 }
 
 #Preview {
-    XcodeDataModelView(model: 
-        XcodeDataModelContent(
-            entities: XcodeDataModelContent.preview.entities,
-            properties: XcodeDataModelContent.preview.properties
-        )
-    )
-        .frame(minWidth: 1000, minHeight: 1000)
+    XcodeDataModelView(model: .preview)
         .background()
+        .frame(width: 1000)
 }

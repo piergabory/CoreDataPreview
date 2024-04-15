@@ -12,29 +12,25 @@ struct DataModelLoadingView: View {
     @State var xcDataModel: XcodeDataModelContent?
     @State var caughtError: Error?
 
+    @ViewBuilder
     var body: some View {
-        VStack {
-            if let xcDataModel {
-                ScrollView([.horizontal, .vertical]) {
-                    XcodeDataModelView(model: xcDataModel)
-                }
-                .background()
-            } else {
-                if let caughtError {
-                    Text(caughtError.localizedDescription)
-                }
-                ProgressView()
-                    .alert($caughtError)
-                    .onAppear {
-                        do {
-                            let document = try loadDocument()
-                            xcDataModel = try XcodeDataModelContentBuilder(document: document).build()
-                        } catch {
-                            caughtError = error
-                            print(error)
-                        }
-                    }
+        if let xcDataModel {
+            XcodeDataModelView(model: xcDataModel)
+        } else {
+            if let caughtError {
+                Text(caughtError.localizedDescription)
             }
+            ProgressView()
+                .alert($caughtError)
+                .onAppear {
+                    do {
+                        let document = try loadDocument()
+                        xcDataModel = try XcodeDataModelContentBuilder(document: document).build()
+                    } catch {
+                        caughtError = error
+                        print(error)
+                    }
+                }
         }
     }
 

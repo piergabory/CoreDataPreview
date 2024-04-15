@@ -14,8 +14,11 @@ struct ShortestLogicalPathShape: LogicalPathShape {
     let endEdge: CGRectEdge
     let edgeOffset: CGFloat
 
-    init(origin: CGRect, destination: CGRect, edgeOffset: CGFloat = 0, connectionStrategy: BoxConnectionStrategy = VerticalFacingEdges()) {
-        (startEdge, endEdge) = connectionStrategy.boxConnection(from: origin, to: destination)
+    init(origin: CGRect, destination: CGRect, edgeOffset: CGFloat = 20, connectionStrategy: BoxConnectionStrategy = FacingEdgesConnectionStrategy()) {
+        (startEdge, endEdge) = connectionStrategy.boxConnection(
+            from: origin.insetBy(dx: -edgeOffset, dy: -edgeOffset),
+            to: destination.insetBy(dx: -edgeOffset, dy: -edgeOffset)
+        )
         self.origin = origin.midPoint(along: startEdge)
         self.destination = destination.midPoint(along: endEdge)
         self.edgeOffset = edgeOffset

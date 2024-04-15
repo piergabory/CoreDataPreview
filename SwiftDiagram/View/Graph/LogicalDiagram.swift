@@ -8,45 +8,21 @@
 import SwiftUI
 
 extension View {
-    
     func logicalNode<Node: Identifiable>(_ node: Node) -> some View {
         anchorPreference(key: LogicalNodePositions<Node>.self, value: .bounds) { anchor in
             LogicalNodePositions(node: node, bounds: anchor)
         }
     }
 
-    func logicalPaths<Node: Identifiable, Style: LogicalPathStyle>(
+    func logicalPaths<Node: Identifiable, Layer: View>(
         _ links: [LogicalRelation<Node>],
-        styleType: Style.Type,
-        shapeStyle: some ShapeStyle
+        pathLayer: @escaping (CGRect, CGRect) -> Layer
     ) -> some View {
-        self.backgroundPreferenceValue(LogicalNodePositions<Node>.self) { preference in
-            logicalPathLayer(links, nodePositions: preference, styleType: styleType) { style in
-                style
-                    .background()
-                    .foregroundStyle(shapeStyle)
-            }
-        }
-        .overlayPreferenceValue(LogicalNodePositions<Node>.self) { preference in
-            logicalPathLayer(links, nodePositions: preference, styleType: styleType) { style in
-                style
-                    .overlay()
-                    .foregroundStyle(shapeStyle)
-            }
-        }
-    }
-
-    private func logicalPathLayer<Node: Identifiable, Style: LogicalPathStyle, Layer: View>(
-        _ links: [LogicalRelation<Node>],
-        nodePositions: LogicalNodePositions<Node>,
-        styleType _: Style.Type,
-        @ViewBuilder layer: @escaping (Style) -> Layer
-    ) -> some View {
-        ZStack {
+        backgroundPreferenceValue(LogicalNodePositions<Node>.self) { nodePositions in
             ForEach(links) { link in
                 if let originAnchor = nodePositions.anchor(for: link.origin), let destinationAnchor = nodePositions.anchor(for: link.destination) {
                     GeometryReader { proxy in
-                        layer(Style(origin: proxy[originAnchor], destination: proxy[destinationAnchor]))
+                        pathLayer(proxy[originAnchor], proxy[destinationAnchor])
                     }
                 }
             }
@@ -121,8 +97,28 @@ struct LogicalNodePositions<Node: Identifiable>: PreferenceKey {
             Box(name: "Monde")
         }
     }
-    .logicalPaths([LogicalRelation<Node>(origin: "Hello", destination: "World")], styleType: OrthogonalPath.self, shapeStyle: .red)
-    .logicalPaths([LogicalRelation<Node>(origin: "Salut", destination: "Monde")], styleType: DirectPathToMidPoint.self, shapeStyle: .green)
-    .logicalPaths([LogicalRelation<Node>(origin: "Universe", destination: "Howdy")], styleType: SaggingPathToMidPoint.self, shapeStyle: .blue)
-    .frame(width: 500, height: 500)
+    .logicalPaths([LogicalRelation<Node>(origin: "Hello", destination: "World")]) {
+        OrthogonalLogicalPathShape(origin: $0, destination: $1)
+            .stroke {
+                Circle().frame(width: 8, height: 8)
+            } end: {
+                Image(systemName: "chevron.left").frame(width: 8, height: 8).offset(x: 4)
+            }
+    }
+    .logicalPaths([LogicalRelation<Node>(origin: "Salut", destination: "Monde")]) {
+        OrthogonalLogicalPathShape(origin: $0, destination: $1)
+            .stroke {
+                Circle().frame(width: 8, height: 8)
+            } end: {
+                Image(systemName: "chevron.left").frame(width: 8, height: 8).offset(x: 4)
+            }
+    }
+    .logicalPaths([LogicalRelation<Node>(origin: "Universe", destination: "Howdy")]) {
+        ShortestLogicalPathShape(origin: $0, destination: $1)
+            .stroke {
+                Circle().frame(width: 8, height: 8)
+            } end: {
+                Image(systemName: "chevron.left").frame(width: 8, height: 8).offset(x: 4)
+            }
+    }
 }

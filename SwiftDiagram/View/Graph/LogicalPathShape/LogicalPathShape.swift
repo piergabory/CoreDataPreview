@@ -30,7 +30,7 @@ protocol LogicalPathShape: Shape {
 }
 
 extension LogicalPathShape {
-    func stroke<Start: View, End: View>(@ViewBuilder start: @escaping () -> Start?, @ViewBuilder end: @escaping () -> End?) -> some View {
+    func stroke<Start: View, End: View>(@ViewBuilder start: @escaping () -> Start? = { EmptyView() }, @ViewBuilder end: @escaping () -> End?) -> some View {
         Canvas { context, size in
             context.stroke(path(in: context.clipBoundingRect), with: .foreground)
             if let start = context.resolveSymbol(id: PathTips.start) {
@@ -43,6 +43,7 @@ extension LogicalPathShape {
             start()?.rotationEffect(startAngle).tag(PathTips.start)
             end()?.rotationEffect(endAngle).tag(PathTips.end)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
@@ -50,7 +51,7 @@ extension LogicalPathShape {
     ShortestLogicalPathShape(
         origin: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 25, height: 25)),
         destination: CGRect(origin: CGPoint(x: 100, y: 20), size: CGSize(width: 25, height: 25)),
-        connectionStrategy: ClosestEdge()
+        connectionStrategy: ClosestEdgeConnectionStrategy()
     )
     .stroke {
         Image(systemName: "chevron.left").frame(width: 8, height: 8).offset(x: 4)

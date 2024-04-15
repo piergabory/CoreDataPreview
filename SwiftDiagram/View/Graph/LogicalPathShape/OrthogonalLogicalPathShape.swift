@@ -14,8 +14,11 @@ struct OrthogonalLogicalPathShape: LogicalPathShape {
     let endEdge: CGRectEdge
     let edgeOffset: CGFloat
 
-    init(origin: CGRect, destination: CGRect, edgeOffset: CGFloat = 10, connectionStrategy: BoxConnectionStrategy = VerticalFacingEdges()) {
-        (startEdge, endEdge) = connectionStrategy.boxConnection(from: origin, to: destination)
+    init(origin: CGRect, destination: CGRect, edgeOffset: CGFloat = 20, connectionStrategy: BoxConnectionStrategy = FacingEdgesConnectionStrategy()) {
+        (startEdge, endEdge) = connectionStrategy.boxConnection(
+            from: origin.insetBy(dx: -edgeOffset, dy: -edgeOffset),
+            to: destination.insetBy(dx: -edgeOffset, dy: -edgeOffset)
+        )
         self.origin = origin.midPoint(along: startEdge)
         self.destination = destination.midPoint(along: endEdge)
         self.edgeOffset = edgeOffset
@@ -89,28 +92,28 @@ struct OrthogonalLogicalPathShape: LogicalPathShape {
             origin: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 25, height: 25)),
             destination: CGRect(origin: CGPoint(x: 75, y: 75), size: CGSize(width: 25, height: 25)),
             edgeOffset: 2,
-            connectionStrategy: VerticalFacingEdges()
+            connectionStrategy: FacingEdgesConnectionStrategy()
         )
         .stroke()
 
         OrthogonalLogicalPathShape(
             origin: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 25, height: 25)),
             destination: CGRect(origin: CGPoint(x: 75, y: 0), size: CGSize(width: 25, height: 25)),
-            connectionStrategy: HorizontalFacingEdges()
+            connectionStrategy: FacingEdgesConnectionStrategy(edgeOrientation: .horizontal)
         )
         .stroke()
 
         OrthogonalLogicalPathShape(
             origin: CGRect(origin: CGPoint(x: 5, y: 0), size: CGSize(width: 25, height: 25)),
             destination: CGRect(origin: CGPoint(x: 0, y: 75), size: CGSize(width: 35, height: 25)),
-            connectionStrategy: VerticalFacingEdges()
+            connectionStrategy: DirectionnalConnection()
         )
         .stroke()
 
         OrthogonalLogicalPathShape(
             origin: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 25, height: 25)),
             destination: CGRect(origin: CGPoint(x: 75, y: 75), size: CGSize(width: 25, height: 25)),
-            connectionStrategy: ClosestEdge()
+            connectionStrategy: ClosestEdgeConnectionStrategy()
         )
         .stroke()
     }
