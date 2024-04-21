@@ -27,7 +27,6 @@ struct VersionBrowser: View {
                 HStack {
                     Text(String(reflecting: document.modelVersions[selectedVersion]))
                     Divider()
-
                 }
                 .inspector(isPresented: .constant(true)) {
                     Text(String(reflecting: document.modelVersions[selectedVersion]))
