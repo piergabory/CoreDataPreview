@@ -23,28 +23,33 @@ struct XcodeDataModelView: XMLElementView {
     }
 
     var inheritanceLinks: [LogicalRelation<XcodeDataModelInheritance>] {
-        element.elements(forName: "entity").compactMap { entity in
-            if let inheritance = XcodeDataModelInheritance(element: entity) {
-                return LogicalRelation<XcodeDataModelInheritance>(origin: inheritance.id, destination: inheritance.parent)
+        let inheritanceLinks = element.elements(forName: "entity").compactMap { entity in
+            if let inheritance = XcodeDataModelInheritance(element: entity), let parent = inheritance.parent {
+                return LogicalRelation<XcodeDataModelInheritance>(origin: inheritance.id, destination: parent)
             } else {
                 return nil
             }
         }
+        print(inheritanceLinks)
+        return inheritanceLinks
     }
 
     func makeBody() -> some View {
         ScrollView([.horizontal, .vertical]) {
-            LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
-                forEachElement("entity") { entity in
-                    XcodeDataModelEntityView(element: entity)
+            WheelArrangement {
+                ForestLayout(forest: EntityTree.buildForest(from: element)) { tree in
+                    XcodeDataModelEntityView(element: tree.element)
+                        .fixedSize()
                         .padding()
+                        .padding(.vertical)
                 }
             }
+            .frame(width: 1600, height: 1600)
         }
         .logicalPaths(relationshipLinks) { origin, destination in
             OrthogonalLogicalPathShape(origin: origin, destination: destination)
                 .stroke {
-                    Image(systemName: "chevron.left").offset(x: 4)
+                    Image(systemName: "chevron.left").offset(x: 20)
                 }
                 .foregroundStyle(.blue)
         }
@@ -134,15 +139,12 @@ struct XcodeDataModelEntityRelationshipView: XMLElementView {
 
 struct XcodeDataModelInheritance: Identifiable {
     let id: String
-    let parent: String
+    let parent: String?
 
     init?(element: XMLElement) {
-        guard 
-            let name = element.attribute(forName: "name")?.stringValue,
-            let parentName = element.attribute(forName: "parentEntity")?.stringValue
-        else { return nil }
+        guard let name = element.attribute(forName: "name")?.stringValue else { return nil }
         id = name
-        parent = parentName
+        parent = element.attribute(forName: "parentEntity")?.stringValue
     }
 }
 
