@@ -28,11 +28,9 @@ struct XMLInspectorView: View {
                     ForEach(elements) { element in
                         HStack {
                             Text(element.name + " count")
-                                .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             Text(element.count, format: .number)
-                                .font(.caption)
                                 .foregroundStyle(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -67,12 +65,10 @@ struct XMLAttributeView: View {
     var body: some View {
         HStack {
             Text(name)
-                .font(.caption)
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(value.isEmpty ? "None" : value)
                 .italic(value.isEmpty)
-                .font(.caption)
                 .foregroundStyle(value.isEmpty ? .tertiary : .primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -96,8 +92,9 @@ extension XMLNode: Identifiable {
     }
 }
 
+#if DEBUG
 #Preview {
     let document = XMLDocument.preview
-
     return XMLInspectorView(element: document.rootElement()!.children!.last! as! XMLElement)
 }
+#endif

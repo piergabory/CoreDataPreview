@@ -30,7 +30,6 @@ struct XcodeDataModelView: XMLElementView {
                 return nil
             }
         }
-        print(inheritanceLinks)
         return inheritanceLinks
     }
 
@@ -46,20 +45,20 @@ struct XcodeDataModelView: XMLElementView {
                 }
             }
             .padding(200)
-        }
-        .logicalPaths(relationshipLinks) { origin, destination in
-            OrthogonalLogicalPathShape(origin: origin, destination: destination, edgeOffset: 40)
-                .stroke {
-                    Image(systemName: "chevron.left").offset(x: 20)
-                }
-                .foregroundStyle(.blue)
-        }
-        .logicalPaths(inheritanceLinks) { origin, destination in
-            ShortestLogicalPathShape(origin: origin, destination: destination, connectionStrategy: DirectionnalConnection(direction: .up))
-                .stroke {
-                    Image(systemName: "chevron.left").offset(x: 4)
-                }
-                .foregroundStyle(.red)
+            .logicalPaths(relationshipLinks) { origin, destination in
+                OrthogonalLogicalPathShape(origin: origin, destination: destination, edgeOffset: 40)
+                    .stroke {
+                        Image(systemName: "chevron.left").offset(x: 20)
+                    }
+                    .foregroundStyle(.orange)
+            }
+            .logicalPaths(inheritanceLinks) { origin, destination in
+                ShortestLogicalPathShape(origin: origin, destination: destination, connectionStrategy: DirectionnalConnection(direction: .up))
+                    .stroke {
+                        Image(systemName: "chevron.left").offset(x: 4)
+                    }
+                    .foregroundStyle(.red)
+            }
         }
     }
 }
@@ -162,10 +161,11 @@ struct XcodeDataModelRelationship: Identifiable {
     }
 }
 
+#if DEBUG
 #Preview {
     XcodeDataModelView(element: XMLDocument.preview.rootElement()!)
         .frame(minWidth: 800, minHeight: 600)
         .environment(ObjectOfInterest())
         .fixedSize()
-
 }
+#endif

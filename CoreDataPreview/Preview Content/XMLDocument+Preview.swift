@@ -10,7 +10,7 @@ import Foundation
 extension XMLDocument {
     static let preview: XMLDocument = {
         let bundle = Bundle.main
-        let previewFile = bundle.url(forResource: "wthealth_preview_model", withExtension: nil)!
+        let previewFile = bundle.url(forResource: "associated_device_model", withExtension: nil)!
         return try! XMLDocument(contentsOf: previewFile)
     }()
 }

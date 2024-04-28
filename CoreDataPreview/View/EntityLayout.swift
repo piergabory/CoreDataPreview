@@ -7,13 +7,27 @@
 
 import Foundation
 
-struct EntityTree: Tree {
+final class EntityTree: Tree, Comparable {
     let id: String
     let element: XMLElement
     private(set) var children: [EntityTree]
 
     var description: String {
         id + ": { " + children.map(\.description).joined(separator: ", ") + " }"
+    }
+
+    static func == (lhs: EntityTree, rhs: EntityTree) -> Bool {
+        lhs.id == rhs.id && lhs.children == rhs.children
+    }
+
+    static func < (lhs: EntityTree, rhs: EntityTree) -> Bool {
+        let lRelationCount = lhs.element.elements(forName: "relationship").count
+        let rRelationCount = rhs.element.elements(forName: "relationship").count
+        if lRelationCount == rRelationCount {
+            return lhs.id < rhs.id
+        } else {
+            return lRelationCount < rRelationCount
+        }
     }
 
     private init(id: String, element: XMLElement, children: [EntityTree] = []) {
@@ -23,7 +37,7 @@ struct EntityTree: Tree {
     }
 
     private func appending(_ child: EntityTree) -> EntityTree {
-        EntityTree(id: id, element: element, children: children + [child])
+        EntityTree(id: id, element: element, children: (children + [child]).sorted())
     }
 
     static func buildForest(from model: XMLElement) -> [EntityTree] {
@@ -35,19 +49,26 @@ struct EntityTree: Tree {
             nodes[name] = EntityTree(id: name, element: entity)
         }
 
+        var childs = Set<String>()
         for entity in entities {
             guard
                 let name = entity.attribute(forName: "name")?.stringValue,
                 let current = nodes[name],
                 let parentName = entity.attribute(forName: "parentEntity")?.stringValue,
-                var parent = nodes[parentName]
+                let parent = nodes[parentName]
             else { continue }
             nodes[parentName] = parent.appending(current)
-            nodes[name] = nil
+            childs.insert(name)
         }
 
-        return Array(nodes.values).sorted {
-            $0.id < $1.id
-        }
+        let roots = nodes
+            .filter { key, _ in
+                childs.contains(key) == false
+            }
+            .values
+            .sorted()
+
+        print(roots)
+        return roots
     }
 }

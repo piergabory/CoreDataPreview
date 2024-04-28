@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Xcode 4.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="AccountDevice" representedClassName="AccountDevice" parentEntity="WithingsDevice" syncable="YES">
+        <attribute name="associationId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="debug_mask" optional="YES" attributeType="Integer 32" defaultValueString="-1" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="device_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firmware" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hardware" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="last_batterie_level" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="last_batterie_state" optional="YES" attributeType="Integer 32" defaultValueString="-1" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="last_connection" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="last_weighin" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="logs" optional="YES" attributeType="Binary" valueTransformerName="" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="mac" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="manual_geoloc" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="network" optional="YES" attributeType="Integer 32" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="product_color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secret" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secretKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timezone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updateUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="BPDevice" representedClassName="BPDevice" parentEntity="AccountDevice" syncable="YES">
+        <attribute name="listImagesAlbumPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="listImagesTimelapse" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="nightVisionMode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="BPMDevice" representedClassName="BPMDevice" parentEntity="AccountDevice" syncable="YES"/>
+    <entity name="DataSourceType" representedClassName="DataSourceType" syncable="YES">
+        <attribute name="defaultPriority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="deviceList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WTDevice" inverseName="dataSourceType" inverseEntity="WTDevice" syncable="YES"/>
+    </entity>
+    <entity name="DeviceAlarm" representedClassName="DeviceAlarm" parentEntity="DeviceOption" syncable="YES">
+        <attribute name="activated" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="alarmID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="minute" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="span" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="weekDays" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="DeviceAlarmExtended" representedClassName="DeviceAlarmExtended" parentEntity="DeviceAlarm" syncable="YES">
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DeviceProgram" syncable="YES"/>
+    </entity>
+    <entity name="DeviceEnvironment" representedClassName="DeviceEnvironment" parentEntity="DeviceOption" syncable="YES"/>
+    <entity name="DeviceEnvironmentThreshold" representedClassName="DeviceEnvironmentThreshold" parentEntity="DeviceEnvironment" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Integer 16" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="high" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="low" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="visualNotification" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="DeviceNotification" parentEntity="DeviceOption" syncable="YES">
+        <attribute name="notificationID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="DeviceOption" representedClassName="DeviceOption" syncable="YES">
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WTDevice" inverseName="options" inverseEntity="WTDevice" syncable="YES"/>
+    </entity>
+    <entity name="DevicePlan" representedClassName="DevicePlan" parentEntity="DeviceOption" syncable="YES"/>
+    <entity name="DevicePlanClassic" representedClassName="DevicePlanClassic" parentEntity="DevicePlan" syncable="YES">
+        <attribute name="accountId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="deviceId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="expirationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="modifyDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="planId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="DeviceProgram" representedClassName="DeviceProgram" parentEntity="DeviceOption" syncable="YES">
+        <attribute name="params" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="selectedProgram" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceProgramDescription" inverseName="program" inverseEntity="DeviceProgramDescription" syncable="YES"/>
+    </entity>
+    <entity name="DeviceProgramDescription" representedClassName="DeviceProgramDescription" parentEntity="DeviceOption" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="programID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="program" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeviceProgram" inverseName="selectedProgram" inverseEntity="DeviceProgram" syncable="YES"/>
+    </entity>
+    <entity name="DeviceProgramLullaby" representedClassName="DeviceProgramLullaby" parentEntity="DeviceProgram" syncable="YES">
+        <attribute name="brightness" optional="YES" attributeType="Integer 16" defaultValueString="50" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lullabyId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="100" defaultValueString="50" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="DeviceReminder" representedClassName="DeviceReminder" parentEntity="DeviceAlarm" syncable="YES">
+        <attribute name="activeRangeEnd" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="activeRangeStart" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="notificationMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationParams" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="notificationTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceReminderType" inverseName="reminders" inverseEntity="DeviceReminderType" syncable="YES"/>
+    </entity>
+    <entity name="DeviceReminderType" representedClassName="DeviceReminderType" parentEntity="DeviceOption" syncable="YES">
+        <attribute name="notificationCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminderTypeID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DeviceReminder" inverseName="type" inverseEntity="DeviceReminder" syncable="YES"/>
+    </entity>
+    <entity name="HealthKitDevice" representedClassName="HealthKitDevice" parentEntity="VirtualDevice" syncable="YES"/>
+    <entity name="HWADevice" representedClassName="HWADevice" parentEntity="TrackerDevice" syncable="YES">
+        <attribute name="luminosityLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="luminosityMode" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="nbMaxAlarm" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="screenOrders" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="MobileDevice" representedClassName="MobileDevice" parentEntity="VirtualDevice" syncable="YES">
+        <attribute name="appName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appVersion" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="bleCapable" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="healthKit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="last_ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_used" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modified" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="osName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="osVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pushToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trackingOn" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="typeName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ScaleDevice" representedClassName="ScaleDevice" parentEntity="AccountDevice" syncable="YES">
+        <attribute name="impedancemeter" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="screenOrders" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="SCTDevice" representedClassName="SCTDevice" parentEntity="AccountDevice" syncable="YES"/>
+    <entity name="TrackerDevice" representedClassName="TrackerDevice" parentEntity="UserDevice" syncable="YES">
+        <attribute name="notificationsStatus" optional="YES" attributeType="Integer 16" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="UserDevice" representedClassName="UserDevice" parentEntity="AccountDevice" syncable="YES">
+        <attribute name="userid" optional="YES" attributeType="Integer 32" defaultValueString="-1" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="VirtualDevice" representedClassName="VirtualDevice" parentEntity="WTDevice" syncable="YES">
+        <attribute name="mainUserID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="WAM02Device" representedClassName="WAM02Device" parentEntity="TrackerDevice" syncable="YES">
+        <attribute name="polarityPositive" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="WAMDevice" representedClassName="WAMDevice" parentEntity="TrackerDevice" syncable="YES">
+        <attribute name="autoWakeUp" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="screenOrders" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="WithingsDevice" representedClassName="WithingsDevice" parentEntity="WTDevice" syncable="YES"/>
+    <entity name="WSDDevice" representedClassName="WSDDevice" parentEntity="AccountDevice" syncable="YES">
+        <attribute name="isGlobalSwitchOn" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="nbMaxAlarm" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="wsmDevices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WSMDevice" inverseName="wsdDevice" inverseEntity="WSMDevice" syncable="YES"/>
+    </entity>
+    <entity name="WSMDevice" representedClassName="WSMDevice" parentEntity="UserDevice" syncable="YES">
+        <relationship name="wsdDevice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WSDDevice" inverseName="wsmDevices" inverseEntity="WSDDevice" syncable="YES"/>
+    </entity>
+    <entity name="WTDevice" representedClassName="WTDevice" elementID="AccountDevice" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dataPriority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="debug" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preflang" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synchronized" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dataSourceType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DataSourceType" inverseName="deviceList" inverseEntity="DataSourceType" syncable="YES"/>
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DeviceOption" inverseName="device" inverseEntity="DeviceOption" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AccountDevice" positionX="1998" positionY="656" width="128" height="345"/>
+        <element name="BPDevice" positionX="2221" positionY="792" width="128" height="103"/>
+        <element name="BPMDevice" positionX="2214" positionY="1152" width="128" height="45"/>
+        <element name="DataSourceType" positionX="1674" positionY="1359" width="128" height="88"/>
+        <element name="DeviceAlarm" positionX="2214" positionY="1694" width="128" height="178"/>
+        <element name="DeviceAlarmExtended" positionX="2230" positionY="1908" width="128" height="58"/>
+        <element name="DeviceEnvironment" positionX="2250" positionY="1548" width="128" height="45"/>
+        <element name="DeviceEnvironmentThreshold" positionX="2511" positionY="1566" width="189" height="118"/>
+        <element name="DeviceNotification" positionX="1854" positionY="1712" width="128" height="73"/>
+        <element name="DeviceOption" positionX="1989" positionY="1557" width="128" height="58"/>
+        <element name="DevicePlan" positionX="2250" positionY="1467" width="128" height="45"/>
+        <element name="DevicePlanClassic" positionX="2538" positionY="1341" width="128" height="193"/>
+        <element name="DeviceProgram" positionX="2133" positionY="2051" width="128" height="73"/>
+        <element name="DeviceProgramDescription" positionX="1935" positionY="2021" width="162" height="103"/>
+        <element name="DeviceProgramLullaby" positionX="2374" positionY="2034" width="128" height="105"/>
+        <element name="DeviceReminder" positionX="2448" positionY="1823" width="128" height="148"/>
+        <element name="DeviceReminderType" positionX="2518" positionY="1710" width="146" height="88"/>
+        <element name="HealthKitDevice" positionX="1953" positionY="1332" width="128" height="45"/>
+        <element name="HWADevice" positionX="2628" positionY="612" width="128" height="103"/>
+        <element name="MobileDevice" positionX="2023" positionY="1044" width="128" height="238"/>
+        <element name="ScaleDevice" positionX="2214" positionY="927" width="128" height="73"/>
+        <element name="SCTDevice" positionX="2214" positionY="1073" width="128" height="45"/>
+        <element name="TrackerDevice" positionX="2439" positionY="684" width="128" height="58"/>
+        <element name="UserDevice" positionX="2232" positionY="680" width="128" height="58"/>
+        <element name="VirtualDevice" positionX="1845" positionY="1064" width="128" height="58"/>
+        <element name="WAM02Device" positionX="2635" positionY="837" width="128" height="44"/>
+        <element name="WAMDevice" positionX="2635" positionY="729" width="128" height="73"/>
+        <element name="WithingsDevice" positionX="1780" positionY="792" width="128" height="45"/>
+        <element name="WSDDevice" positionX="2212" positionY="1233" width="128" height="88"/>
+        <element name="WSMDevice" positionX="2446" positionY="837" width="128" height="58"/>
+        <element name="WTDevice" positionX="1656" positionY="972" width="128" height="208"/>
+    </elements>
+</model>

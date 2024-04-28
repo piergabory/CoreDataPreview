@@ -12,11 +12,12 @@
 		8B130B3E2BCF070200A06251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B130B3D2BCF070200A06251 /* Assets.xcassets */; };
 		8B130B412BCF070200A06251 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B130B402BCF070200A06251 /* Preview Assets.xcassets */; };
 		8B130B492BCF1BEA00A06251 /* XcodeDataModelPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B130B482BCF1BEA00A06251 /* XcodeDataModelPackage.swift */; };
-		8B130B4D2BCF1D5100A06251 /* XcodeDataModelPackage+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B130B4C2BCF1D5100A06251 /* XcodeDataModelPackage+Preview.swift */; };
 		8B58E4532BDEBF9200484B41 /* ForestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58E4522BDEBF9200484B41 /* ForestLayout.swift */; };
 		8B58E4552BDEC86100484B41 /* EntityLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58E4542BDEC86100484B41 /* EntityLayout.swift */; };
 		8B58E4572BDECEBC00484B41 /* WheelArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58E4562BDECEBC00484B41 /* WheelArrangement.swift */; };
 		8B58E4592BDED8C400484B41 /* MoveableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58E4582BDED8C400484B41 /* MoveableModifier.swift */; };
+		8B58E47E2BDEE08400484B41 /* associated_device_model in Resources */ = {isa = PBXBuildFile; fileRef = 8B58E47D2BDEE08400484B41 /* associated_device_model */; };
+		8B58E47F2BDEEE6400484B41 /* XcodeDataModelPackage+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B130B4C2BCF1D5100A06251 /* XcodeDataModelPackage+Preview.swift */; };
 		8B8F57FD2BD6EE3000A1B4DB /* XMLElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F57FC2BD6EE3000A1B4DB /* XMLElementView.swift */; };
 		8B8F58092BD6F02C00A1B4DB /* OrthogonalLogicalPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F58022BD6F02C00A1B4DB /* OrthogonalLogicalPathShape.swift */; };
 		8B8F580A2BD6F02C00A1B4DB /* LogicalPathShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F58032BD6F02C00A1B4DB /* LogicalPathShape.swift */; };
@@ -49,6 +50,41 @@
 		8B58E4542BDEC86100484B41 /* EntityLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityLayout.swift; sourceTree = "<group>"; };
 		8B58E4562BDECEBC00484B41 /* WheelArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelArrangement.swift; sourceTree = "<group>"; };
 		8B58E4582BDED8C400484B41 /* MoveableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableModifier.swift; sourceTree = "<group>"; };
+		8B58E45B2BDEE04200484B41 /* AssociatedDevice 34.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 34.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E45C2BDEE04200484B41 /* AssociatedDevice 44.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 44.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E45D2BDEE04200484B41 /* AssociatedDevice 58.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 58.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E45E2BDEE04200484B41 /* AssociatedDevice 28.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 28.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E45F2BDEE04200484B41 /* AssociatedDevice 51.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 51.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4602BDEE04200484B41 /* AssociatedDevice 38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 38.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4612BDEE04200484B41 /* AssociatedDevice 48.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 48.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4622BDEE04200484B41 /* AssociatedDevice 54.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 54.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4632BDEE04200484B41 /* AssociatedDevice 41.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 41.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4642BDEE04200484B41 /* AssociatedDevice 31.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 31.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4652BDEE04200484B41 /* AssociatedDevice 42.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 42.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4662BDEE04200484B41 /* AssociatedDevice 32.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 32.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4672BDEE04200484B41 /* AssociatedDevice 57.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 57.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4682BDEE04200484B41 /* AssociatedDevice 27.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 27.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4692BDEE04200484B41 /* AssociatedDevice 52.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 52.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E46A2BDEE04200484B41 /* AssociatedDevice 37.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 37.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E46B2BDEE04200484B41 /* AssociatedDevice 47.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 47.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E46C2BDEE04200484B41 /* AssociatedDevice 30.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 30.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E46D2BDEE04200484B41 /* AssociatedDevice 40.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 40.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E46E2BDEE04200484B41 /* AssociatedDevice 25.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 25.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E46F2BDEE04200484B41 /* AssociatedDevice 55.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 55.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4702BDEE04200484B41 /* AssociatedDevice 49.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 49.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4712BDEE04200484B41 /* AssociatedDevice 39.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 39.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4722BDEE04200484B41 /* AssociatedDevice 50.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 50.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4732BDEE04200484B41 /* AssociatedDevice 29.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 29.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4742BDEE04200484B41 /* AssociatedDevice 45.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 45.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4752BDEE04200484B41 /* AssociatedDevice 35.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 35.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4762BDEE04200484B41 /* AssociatedDevice 46.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 46.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4772BDEE04200484B41 /* AssociatedDevice 36.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 36.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4782BDEE04200484B41 /* AssociatedDevice 53.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 53.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E4792BDEE04200484B41 /* AssociatedDevice 26.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 26.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E47A2BDEE04200484B41 /* AssociatedDevice 56.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 56.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E47B2BDEE04200484B41 /* AssociatedDevice 33.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 33.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E47C2BDEE04200484B41 /* AssociatedDevice 43.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AssociatedDevice 43.xcdatamodel"; sourceTree = "<group>"; };
+		8B58E47D2BDEE08400484B41 /* associated_device_model */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = associated_device_model; path = "AssociatedDevice.xcdatamodeld/AssociatedDevice 58.xcdatamodel/associated_device_model"; sourceTree = "<group>"; };
 		8B8F57FC2BD6EE3000A1B4DB /* XMLElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLElementView.swift; sourceTree = "<group>"; };
 		8B8F57FF2BD6F02C00A1B4DB /* LogicalDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicalDiagram.swift; sourceTree = "<group>"; };
 		8B8F58012BD6F02C00A1B4DB /* ShortestLogicalPathShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortestLogicalPathShape.swift; sourceTree = "<group>"; };
@@ -95,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				8B978F412BD5686900E22E13 /* wthealth_preview_model */,
+				8B58E47D2BDEE08400484B41 /* associated_device_model */,
+				8B58E45A2BDEE04200484B41 /* AssociatedDevice.xcdatamodeld */,
 				8B130B462BCF075100A06251 /* WTHealth.xcdatamodeld */,
 				8B130B402BCF070200A06251 /* Preview Assets.xcassets */,
 				8B130B4C2BCF1D5100A06251 /* XcodeDataModelPackage+Preview.swift */,
@@ -253,6 +291,7 @@
 			files = (
 				8B130B412BCF070200A06251 /* Preview Assets.xcassets in Resources */,
 				8B130B3E2BCF070200A06251 /* Assets.xcassets in Resources */,
+				8B58E47E2BDEE08400484B41 /* associated_device_model in Resources */,
 				8B978F442BD5697500E22E13 /* wthealth_preview_model in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,9 +315,9 @@
 				8B8F57FD2BD6EE3000A1B4DB /* XMLElementView.swift in Sources */,
 				8B978F492BD5A72400E22E13 /* XcodeDataModelView.swift in Sources */,
 				8B58E4532BDEBF9200484B41 /* ForestLayout.swift in Sources */,
+				8B58E47F2BDEEE6400484B41 /* XcodeDataModelPackage+Preview.swift in Sources */,
 				8B8F580F2BD6F02C00A1B4DB /* BoxConnectionStrategy.swift in Sources */,
 				8B130B382BCF070100A06251 /* CoreDataPreviewApp.swift in Sources */,
-				8B130B4D2BCF1D5100A06251 /* XcodeDataModelPackage+Preview.swift in Sources */,
 				8B8F580E2BD6F02C00A1B4DB /* ClosestEdgeConnectionStrategy.swift in Sources */,
 				8B130B3C2BCF070100A06251 /* VersionBrowser.swift in Sources */,
 				8B58E4552BDEC86100484B41 /* EntityLayout.swift in Sources */,
@@ -298,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreDataPreview/Preview Content\"";
@@ -323,12 +363,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.piergabory.CoreDataPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -337,6 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CoreDataPreview/Preview Content\"";
@@ -362,12 +403,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.piergabory.CoreDataPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -518,6 +559,50 @@
 			currentVersion = 8B130B472BCF075100A06251 /* WTHealth.xcdatamodel */;
 			name = WTHealth.xcdatamodeld;
 			path = "/Users/pgabory/Developer/SwiftDiagram/CoreDataPreview/Preview Content/WTHealth.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		8B58E45A2BDEE04200484B41 /* AssociatedDevice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B58E45B2BDEE04200484B41 /* AssociatedDevice 34.xcdatamodel */,
+				8B58E45C2BDEE04200484B41 /* AssociatedDevice 44.xcdatamodel */,
+				8B58E45D2BDEE04200484B41 /* AssociatedDevice 58.xcdatamodel */,
+				8B58E45E2BDEE04200484B41 /* AssociatedDevice 28.xcdatamodel */,
+				8B58E45F2BDEE04200484B41 /* AssociatedDevice 51.xcdatamodel */,
+				8B58E4602BDEE04200484B41 /* AssociatedDevice 38.xcdatamodel */,
+				8B58E4612BDEE04200484B41 /* AssociatedDevice 48.xcdatamodel */,
+				8B58E4622BDEE04200484B41 /* AssociatedDevice 54.xcdatamodel */,
+				8B58E4632BDEE04200484B41 /* AssociatedDevice 41.xcdatamodel */,
+				8B58E4642BDEE04200484B41 /* AssociatedDevice 31.xcdatamodel */,
+				8B58E4652BDEE04200484B41 /* AssociatedDevice 42.xcdatamodel */,
+				8B58E4662BDEE04200484B41 /* AssociatedDevice 32.xcdatamodel */,
+				8B58E4672BDEE04200484B41 /* AssociatedDevice 57.xcdatamodel */,
+				8B58E4682BDEE04200484B41 /* AssociatedDevice 27.xcdatamodel */,
+				8B58E4692BDEE04200484B41 /* AssociatedDevice 52.xcdatamodel */,
+				8B58E46A2BDEE04200484B41 /* AssociatedDevice 37.xcdatamodel */,
+				8B58E46B2BDEE04200484B41 /* AssociatedDevice 47.xcdatamodel */,
+				8B58E46C2BDEE04200484B41 /* AssociatedDevice 30.xcdatamodel */,
+				8B58E46D2BDEE04200484B41 /* AssociatedDevice 40.xcdatamodel */,
+				8B58E46E2BDEE04200484B41 /* AssociatedDevice 25.xcdatamodel */,
+				8B58E46F2BDEE04200484B41 /* AssociatedDevice 55.xcdatamodel */,
+				8B58E4702BDEE04200484B41 /* AssociatedDevice 49.xcdatamodel */,
+				8B58E4712BDEE04200484B41 /* AssociatedDevice 39.xcdatamodel */,
+				8B58E4722BDEE04200484B41 /* AssociatedDevice 50.xcdatamodel */,
+				8B58E4732BDEE04200484B41 /* AssociatedDevice 29.xcdatamodel */,
+				8B58E4742BDEE04200484B41 /* AssociatedDevice 45.xcdatamodel */,
+				8B58E4752BDEE04200484B41 /* AssociatedDevice 35.xcdatamodel */,
+				8B58E4762BDEE04200484B41 /* AssociatedDevice 46.xcdatamodel */,
+				8B58E4772BDEE04200484B41 /* AssociatedDevice 36.xcdatamodel */,
+				8B58E4782BDEE04200484B41 /* AssociatedDevice 53.xcdatamodel */,
+				8B58E4792BDEE04200484B41 /* AssociatedDevice 26.xcdatamodel */,
+				8B58E47A2BDEE04200484B41 /* AssociatedDevice 56.xcdatamodel */,
+				8B58E47B2BDEE04200484B41 /* AssociatedDevice 33.xcdatamodel */,
+				8B58E47C2BDEE04200484B41 /* AssociatedDevice 43.xcdatamodel */,
+			);
+			currentVersion = 8B58E45D2BDEE04200484B41 /* AssociatedDevice 58.xcdatamodel */;
+			name = AssociatedDevice.xcdatamodeld;
+			path = "/Users/pgabory/Developer/SwiftDiagram/CoreDataPreview/Preview Content/AssociatedDevice.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

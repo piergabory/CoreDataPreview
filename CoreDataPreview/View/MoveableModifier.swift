@@ -37,6 +37,7 @@ struct MoveableModifier: ViewModifier {
     }
 }
 
+#if DEBUG
 #Preview {
     HStack {
         ForEach(1...10, id: \.self) { index in
@@ -49,3 +50,4 @@ struct MoveableModifier: ViewModifier {
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
 }
+#endif

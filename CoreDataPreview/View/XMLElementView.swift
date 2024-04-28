@@ -49,7 +49,7 @@ struct ObjectOfInterestSetter: ViewModifier {
             .background {
                 if isSelected {
                     RoundedRectangle(cornerRadius: 3)
-                        .stroke(Color.accentColor)
+                        .stroke(.secondary, style: StrokeStyle(dash: [10]))
                 } else {
                     Color.clear
                 }

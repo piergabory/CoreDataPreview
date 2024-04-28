@@ -27,6 +27,8 @@ struct XcodeDataModelPackageView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     XcodeDataModelPackageView(package: .preview)
 }
+#endif

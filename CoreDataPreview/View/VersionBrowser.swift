@@ -34,8 +34,10 @@ struct VersionBrowser: View {
     }
 }
 
+#if DEBUG
 #Preview {
     VersionBrowser(package: .preview)
         .frame(width: 800, height: 600)
         .environment(ObjectOfInterest())
 }
+#endif
