@@ -9,11 +9,14 @@ import SwiftUI
 import Foundation
 
 struct XMLInspectorView: View {
-    let element: XMLElement
+    let element: XMLElement?
 
     var body: some View {
         List {
-            if let attributes = element.attributes {
+            if element == nil {
+                Text("Select an element to inspect.")
+            }
+            if let attributes = element?.attributes {
                 Section("Attributes") {
                     ForEach(attributes) { attribute in
                         XMLAttributeView(attribute: attribute)
@@ -27,7 +30,7 @@ struct XMLInspectorView: View {
                             Text(element.name + " count")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             Text(element.count, format: .number)
                                 .font(.caption)
                                 .foregroundStyle(.primary)
@@ -37,7 +40,6 @@ struct XMLInspectorView: View {
                 }
             }
         }
-        .listStyle(.sidebar)
     }
 
     struct ElementCount: Identifiable {
@@ -47,7 +49,7 @@ struct XMLInspectorView: View {
     }
 
     private func elementsCount() -> [ElementCount]? {
-        let childElements = element.children?.filter { $0.kind == .element }
+        let childElements = element?.children?.filter { $0.kind == .element }
         guard let childElements else { return nil }
         let groupedByName = Dictionary(grouping: childElements) { $0.name ?? "None" }
         return groupedByName.compactMap { (key, value) in
@@ -67,7 +69,7 @@ struct XMLAttributeView: View {
             Text(name)
                 .font(.caption)
                 .foregroundStyle(.secondary)
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Text(value.isEmpty ? "None" : value)
                 .italic(value.isEmpty)
                 .font(.caption)

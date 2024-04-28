@@ -17,16 +17,3 @@ extension XcodeDataModelPackage {
         "Version 4": .preview
     ])
 }
-
-extension XcodeDataModel {
-    static let preview = XcodeDataModel(
-        entities: [],
-        properties: Properties(
-            type: "Preview Data Model",
-            documentVersion: "1.0.0",
-            lastSavedToolsVersion: "2.0.0",
-            systemVersion: "MacOS 14.4",
-            userDefinedModelVersionIdentifier: "Version 0"
-        )
-    )
-}

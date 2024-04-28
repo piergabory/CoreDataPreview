@@ -8,38 +8,33 @@
 import SwiftUI
 
 struct VersionBrowser: View {
-    let document: XcodeDataModelPackage
-    @State var selectedVersion: String?
-
-    init(document: XcodeDataModelPackage) {
-        self.document = document
-    }
+    @State var selectedVersion: String? = nil
+    @State var columnVisibility: NavigationSplitViewVisibility = .detailOnly
+    let package: XcodeDataModelPackage
 
     var body: some View {
-        NavigationSplitView {
+         NavigationSplitView(columnVisibility: $columnVisibility) {
             List(selection: $selectedVersion) {
-                ForEach(document.modelVersions.keys.sorted(), id: \.self) { version in
+                ForEach(package.modelVersions.keys.sorted(), id: \.self) { version in
                     Text(version)
                 }
             }
+            .navigationSplitViewColumnWidth(min: 200, ideal: 250)
         } detail: {
-            if let selectedVersion {
-                HStack {
-                    Text(String(reflecting: document.modelVersions[selectedVersion]))
-                    Divider()
-                }
-                .inspector(isPresented: .constant(true)) {
-                    Text(String(reflecting: document.modelVersions[selectedVersion]))
-                }
+            if let selectedVersion, let model = package.modelVersions[selectedVersion]?.rootElement() {
+                XcodeDataModelView(element: model)
+            } else {
+                Text("Select version.").font(.title)
             }
         }
         .onAppear {
-            selectedVersion = document.modelVersions.keys.first
+            selectedVersion = package.modelVersions.keys.first
         }
     }
 }
 
-
 #Preview {
-    VersionBrowser(document: XcodeDataModelPackage.preview)
+    VersionBrowser(package: .preview)
+        .frame(width: 800, height: 600)
+        .environment(ObjectOfInterest())
 }

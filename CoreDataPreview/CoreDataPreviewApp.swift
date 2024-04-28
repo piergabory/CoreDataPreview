@@ -11,7 +11,7 @@ import SwiftUI
 struct CoreDataPreviewApp: App {
     var body: some Scene {
         DocumentGroup(viewing: XcodeDataModelPackage.self) { configuration in
-            VersionBrowser(document: configuration.document)
+            XcodeDataModelPackageView(package: configuration.document)
         }
     }
 }

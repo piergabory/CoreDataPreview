@@ -22,9 +22,9 @@ struct XcodeDataModelPackage: FileDocument {
 
     static let readableContentTypes: [UTType] = [.xcdatamodel, .xcdatamodeld]
 
-    var modelVersions: [String: XcodeDataModel] = [:]
+    var modelVersions: [String: XMLDocument] = [:]
 
-    init(versions: [String: XcodeDataModel]) {
+    init(versions: [String: XMLDocument]) {
         modelVersions = versions
     }
 
@@ -58,7 +58,7 @@ struct XcodeDataModelPackage: FileDocument {
 
         for (version, data) in modelVersionData {
             do {
-                modelVersions[version] = try decodeModelContents(data: data)
+                modelVersions[version] = try XMLDocument(data: data)
             } catch {
                 print("Error decoding \(version). Error: \(error)")
             }
@@ -67,31 +67,5 @@ struct XcodeDataModelPackage: FileDocument {
 
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         fatalError("Write not supported")
-    }
-
-    // MARK: Decode XML
-
-    enum XMLDecodingError: Swift.Error {
-        case emptyDocument
-    }
-
-    private func decodeModelContents(data: Data) throws -> XcodeDataModel {
-        let xmlDocument = try XMLDocument(data: data)
-        guard let rootElement = xmlDocument.rootElement() else {
-            throw XMLDecodingError.emptyDocument
-        }
-
-        // Properties
-        let properties = XcodeDataModel.Properties(
-            type: rootElement.attribute(forName: "type")?.stringValue,
-            documentVersion: rootElement.attribute(forName: "documentVersion")?.stringValue,
-            lastSavedToolsVersion: rootElement.attribute(forName: "lastSavedToolsVersion")?.stringValue,
-            systemVersion: rootElement.attribute(forName: "systemVersion")?.stringValue,
-            userDefinedModelVersionIdentifier: rootElement.attribute(forName: "userDefinedModelVersionIdentifier")?.stringValue
-        )
-
-        // Entities
-        var entities: [XcodeDataModel.Entity] = []
-        return XcodeDataModel(entities: entities, properties: properties)
     }
 }
