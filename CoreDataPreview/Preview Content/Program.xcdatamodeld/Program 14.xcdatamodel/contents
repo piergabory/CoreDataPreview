@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="DBBookmark" representedClassName="DBBookmark" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="imageKey" optional="YES" attributeType="String"/>
+        <attribute name="remoteTaskId" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="DBFare" representedClassName="DBFare" syncable="YES">
+        <attribute name="brand" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fareId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="planType" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="remoteId" optional="YES" attributeType="String"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBProgram" inverseName="fares" inverseEntity="DBProgram"/>
+    </entity>
+    <entity name="DBMission" representedClassName="DBMission" syncable="YES">
+        <attribute name="completionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="crmId" optional="YES" attributeType="String"/>
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="imageKey" optional="YES" attributeType="String"/>
+        <attribute name="isSynchronized" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="missionId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="programTaskID" optional="YES" attributeType="String"/>
+        <attribute name="remoteTaskID" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="capabilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBProgramCapability"/>
+        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBMissionGoal" inverseName="mission" inverseEntity="DBMissionGoal"/>
+    </entity>
+    <entity name="DBMissionGoal" representedClassName="DBMissionGoal" syncable="YES">
+        <attribute name="measureType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="target" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="mission" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBMission" inverseName="goal" inverseEntity="DBMission"/>
+    </entity>
+    <entity name="DBProgram" representedClassName="DBProgram" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" elementID="type"/>
+        <attribute name="eligibilityURL" optional="YES" attributeType="String"/>
+        <attribute name="isAvailable" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO"/>
+        <attribute name="isEligible" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO"/>
+        <attribute name="programID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="targetType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO"/>
+        <relationship name="descriptionn" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramDescription" inverseName="program" inverseEntity="DBProgramDescription"/>
+        <relationship name="fares" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBFare" inverseName="program" inverseEntity="DBFare"/>
+        <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBProgramInstance" inverseName="program" inverseEntity="DBProgramInstance"/>
+    </entity>
+    <entity name="DBProgramCapability" representedClassName="DBProgramCapability" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="DBProgramDescription" representedClassName="DBProgramDescription" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageFullURL" optional="YES" attributeType="String"/>
+        <attribute name="imagePreviewURL" optional="YES" attributeType="String"/>
+        <attribute name="isLocal" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO"/>
+        <attribute name="joinTitle" optional="YES" attributeType="String"/>
+        <attribute name="localURL" optional="YES" attributeType="String"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <attribute name="tagColor" optional="YES" attributeType="String"/>
+        <attribute name="tags" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="capabilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBProgramCapability"/>
+        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBProgramDevice"/>
+        <relationship name="duration" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramDuration"/>
+        <relationship name="features" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBProgramFeature"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgram" inverseName="descriptionn" inverseEntity="DBProgram"/>
+        <relationship name="screenshots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBProgramScreenshot"/>
+        <relationship name="sponsor" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramSponsor"/>
+    </entity>
+    <entity name="DBProgramDevice" representedClassName="DBProgramDevice" syncable="YES">
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="model" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="required" optional="YES" attributeType="Boolean" usesScalarValueType="NO"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramTag"/>
+    </entity>
+    <entity name="DBProgramDuration" representedClassName="DBProgramDuration" syncable="YES">
+        <attribute name="range" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="DBProgramFeature" representedClassName="DBProgramFeature" syncable="YES">
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramTag"/>
+    </entity>
+    <entity name="DBProgramInstance" representedClassName="DBProgramInstance" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="iteration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" elementID="instanceID"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="programInstanceID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="progress" optional="YES" attributeType="Float" usesScalarValueType="NO"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBProgramInstancePage"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgram" inverseName="instances" inverseEntity="DBProgram"/>
+        <relationship name="taskCompletions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBProgramTaskCompletion" inverseName="programInstance" inverseEntity="DBProgramTaskCompletion"/>
+    </entity>
+    <entity name="DBProgramInstancePage" representedClassName="DBProgramInstancePage" syncable="YES">
+        <attribute name="glyph" optional="YES" attributeType="String"/>
+        <attribute name="pageURL" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramTag"/>
+    </entity>
+    <entity name="DBProgramScreenshot" representedClassName="DBProgramScreenshot" syncable="YES">
+        <attribute name="screenshotURL" optional="YES" attributeType="String"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DBProgramTag"/>
+    </entity>
+    <entity name="DBProgramSponsor" representedClassName="DBProgramSponsor" syncable="YES">
+        <attribute name="descriptionn" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DBProgramTag" representedClassName="DBProgramTag" syncable="YES">
+        <attribute name="value" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="DBProgramTaskCompletion" representedClassName="DBProgramTaskCompletion" syncable="YES">
+        <attribute name="completionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isSynchronized" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="programTaskID" optional="YES" attributeType="String"/>
+        <relationship name="programInstance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBProgramInstance" inverseName="taskCompletions" inverseEntity="DBProgramInstance"/>
+    </entity>
+</model>

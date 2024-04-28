@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13221.4" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Program" representedClassName="Program" syncable="YES" codeGenerationType="class">
+        <attribute name="eligibilityURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isAvailable" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isEligible" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="programID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="descriptionn" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramDescription" inverseName="program" inverseEntity="ProgramDescription" syncable="YES"/>
+        <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgramInstance" inverseName="program" inverseEntity="ProgramInstance" syncable="YES"/>
+    </entity>
+    <entity name="ProgramDescription" representedClassName="ProgramDescription" syncable="YES" codeGenerationType="class">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="imageFullKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageFullURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePreviewKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePreviewURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isLocal" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="joinTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tagColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgramDevice" syncable="YES"/>
+        <relationship name="duration" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramDuration" syncable="YES"/>
+        <relationship name="features" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgramFeature" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Program" inverseName="descriptionn" inverseEntity="Program" syncable="YES"/>
+        <relationship name="screenshots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgramScreenshot" syncable="YES"/>
+        <relationship name="sponsor" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramSponsor" syncable="YES"/>
+    </entity>
+    <entity name="ProgramDevice" representedClassName="ProgramDevice" syncable="YES" codeGenerationType="class">
+        <attribute name="imageKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="required" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramTag" syncable="YES"/>
+    </entity>
+    <entity name="ProgramDuration" representedClassName="ProgramDuration" syncable="YES" codeGenerationType="class">
+        <attribute name="range" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="ProgramFeature" representedClassName="ProgramFeature" syncable="YES" codeGenerationType="class">
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramTag" syncable="YES"/>
+    </entity>
+    <entity name="ProgramInstance" representedClassName="ProgramInstance" syncable="YES" codeGenerationType="class">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instanceID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isAvailable" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="progress" optional="YES" attributeType="Float" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgramInstancePage" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Program" inverseName="instances" inverseEntity="Program" syncable="YES"/>
+    </entity>
+    <entity name="ProgramInstancePage" representedClassName="ProgramInstancePage" syncable="YES" codeGenerationType="class">
+        <attribute name="glyph" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramTag" syncable="YES"/>
+    </entity>
+    <entity name="ProgramScreenshot" representedClassName="ProgramScreenshot" syncable="YES" codeGenerationType="class">
+        <attribute name="screenshotKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="screenshotURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramTag" syncable="YES"/>
+    </entity>
+    <entity name="ProgramSponsor" representedClassName="ProgramSponsor" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptionn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProgramTag" representedClassName="ProgramTag" syncable="YES" codeGenerationType="class">
+        <attribute name="value" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Program" positionX="-200" positionY="-333" width="128" height="150"/>
+        <element name="ProgramDescription" positionX="-378" positionY="-37" width="128" height="358"/>
+        <element name="ProgramDevice" positionX="-126" positionY="27" width="128" height="118"/>
+        <element name="ProgramDuration" positionX="-18" positionY="159" width="128" height="75"/>
+        <element name="ProgramFeature" positionX="-20" positionY="252" width="128" height="88"/>
+        <element name="ProgramInstance" positionX="9" positionY="-250" width="128" height="193"/>
+        <element name="ProgramInstancePage" positionX="198" positionY="-162" width="155" height="103"/>
+        <element name="ProgramScreenshot" positionX="-83" positionY="353" width="128" height="88"/>
+        <element name="ProgramSponsor" positionX="-225" positionY="426" width="128" height="105"/>
+        <element name="ProgramTag" positionX="322" positionY="63" width="128" height="58"/>
+    </elements>
+</model>
