@@ -42,6 +42,7 @@ struct XcodeDataModelView: XMLElementView {
                         .fixedSize()
                         .padding()
                         .padding(.vertical)
+                        .moveable()
                 }
             }
             .frame(width: 1600, height: 1600)
