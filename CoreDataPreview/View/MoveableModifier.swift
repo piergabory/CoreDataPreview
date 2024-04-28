@@ -16,15 +16,16 @@ extension View {
 struct MoveableModifier: ViewModifier {
     // Look at Gesture State
     @State var offset: CGSize = .zero
-    @State var pendingOffset: CGSize = .zero
+    @GestureState var pendingOffset: CGSize = .zero
 
     var dragGesture: some Gesture {
         DragGesture(coordinateSpace: .global)
-            .onChanged { pendingOffset = $0.translation }
+            .updating($pendingOffset) { gestureValue, pendingOffset, _ in
+                pendingOffset = gestureValue.translation
+            }
             .onEnded {
                 offset.width += $0.translation.width
                 offset.height += $0.translation.height
-                pendingOffset = .zero
             }
     }
 
