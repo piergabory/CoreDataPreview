@@ -29,6 +29,7 @@ struct VersionBrowser: View {
         }
         .onAppear {
             selectedVersion = package.modelVersions.keys.first
+            columnVisibility = package.modelVersions.count > 1 ? .automatic : .detailOnly
         }
     }
 }

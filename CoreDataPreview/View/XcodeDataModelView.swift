@@ -36,7 +36,7 @@ struct XcodeDataModelView: XMLElementView {
 
     func makeBody() -> some View {
         ScrollView([.horizontal, .vertical]) {
-            WheelArrangement {
+            HStack {
                 ForestLayout(forest: EntityTree.buildForest(from: element)) { tree in
                     XcodeDataModelEntityView(element: tree.element)
                         .fixedSize()
@@ -45,17 +45,17 @@ struct XcodeDataModelView: XMLElementView {
                         .moveable()
                 }
             }
-            .frame(width: 1600, height: 1600)
+            .padding(200)
         }
         .logicalPaths(relationshipLinks) { origin, destination in
-            OrthogonalLogicalPathShape(origin: origin, destination: destination)
+            OrthogonalLogicalPathShape(origin: origin, destination: destination, edgeOffset: 40)
                 .stroke {
                     Image(systemName: "chevron.left").offset(x: 20)
                 }
                 .foregroundStyle(.blue)
         }
         .logicalPaths(inheritanceLinks) { origin, destination in
-            ShortestLogicalPathShape(origin: origin, destination: destination, connectionStrategy: FacingEdgesConnectionStrategy(edgeOrientation: .horizontal))
+            ShortestLogicalPathShape(origin: origin, destination: destination, connectionStrategy: DirectionnalConnection(direction: .up))
                 .stroke {
                     Image(systemName: "chevron.left").offset(x: 4)
                 }
