@@ -38,7 +38,6 @@ struct WheelLayout: Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         if subviews.isEmpty { return }
         let count = subviews.count
-        let radius = min(bounds.width, bounds.height) / 4 + radius
         for (index, subview) in subviews.enumerated() {
             let angle = (-.pi / 2) + (CGFloat(index) / CGFloat(count) * .pi * 2)
             let position = CGPoint(

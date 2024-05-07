@@ -95,6 +95,6 @@ extension XMLNode: Identifiable {
 #if DEBUG
 #Preview {
     let document = XMLDocument.preview
-    return XMLInspectorView(element: document.rootElement()!.children!.last! as! XMLElement)
+    return XMLInspectorView(element: document.rootElement()?.children?.last as? XMLElement)
 }
 #endif
